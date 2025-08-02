@@ -778,7 +778,7 @@ Transform:
   m_GameObject: {fileID: 1870809884}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.2588186, w: 0.965926}
-  m_LocalPosition: {x: -14.000002, y: 3.2320518, z: 0}
+  m_LocalPosition: {x: -14.866028, y: 3.7320511, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -794,9 +794,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1883777840}
   - component: {fileID: 1883777839}
-  - component: {fileID: 1883777842}
+  - component: {fileID: 1883777844}
   - component: {fileID: 1883777838}
   - component: {fileID: 1883777841}
+  - component: {fileID: 1883777843}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -937,7 +938,7 @@ MonoBehaviour:
         DecelTime: 0.2
   PlayerIndex: -1
   AutoEnableInputs: 1
---- !u!114 &1883777842
+--- !u!114 &1883777843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -946,10 +947,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1883777837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d1163fa822e8b418a0a603ec078d5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 310beb0a0be5afe42afaa4071bf2ecd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: 0
+  characterController: {fileID: 3925609411863901299}
+  cinemachineFollow: {fileID: 1883777844}
+  bobFrequency: 4
+  yBobAmplitude: 3
+  xBobAmplitude: 3
+  bobSmoothing: 0.1
+--- !u!114 &1883777844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883777837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrackerSettings:
+    BindingMode: 4
+    PositionDamping: {x: 0, y: 0, z: 0}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1965425404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1071433565770769969, guid: a01d2df745e173c4dbeaba29683ad9fc, type: 3}
@@ -963,6 +988,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2150068086696502730, guid: a01d2df745e173c4dbeaba29683ad9fc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5466252705534761650, guid: a01d2df745e173c4dbeaba29683ad9fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11
@@ -1012,6 +1041,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a01d2df745e173c4dbeaba29683ad9fc, type: 3}
+--- !u!143 &3925609411863901299 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 8623935360875079694, guid: a01d2df745e173c4dbeaba29683ad9fc, type: 3}
+  m_PrefabInstance: {fileID: 3925609411863901298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
