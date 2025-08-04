@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Popups General")]
     [SerializeField] private GameObject popupPrefab;
-    [SerializeField] private string testMessage = "Test";
+    [SerializeField] private string testMessage = "Test"; // For editor testing purposes only
     [SerializeField] private float popupDuration = 1.5f;
     [SerializeField] private float letterInterval = 0.1f;
     [SerializeField] private float wordInterval = 0.2f;
