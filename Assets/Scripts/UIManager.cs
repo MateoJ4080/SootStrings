@@ -6,23 +6,23 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
-    [Header("Popups General")]
-    [SerializeField] private GameObject popupPrefab;
-    [SerializeField] private string testMessage = "Test"; // For editor testing purposes only
-    [SerializeField] private float popupDuration = 1.5f;
+    [Header("General")]
     [SerializeField] private float letterInterval = 0.1f;
-    [SerializeField] private float wordInterval = 0.2f;
-    private GameObject popup;
-    private TextMeshProUGUI popupTMP;
+    [SerializeField] private float wordInterval = 0.1f;
+    [SerializeField] private float fadeDuration = 0.5f;
 
-    [Header("Popups Audio")]
-    [SerializeField] private AudioSource popupAudioSource;
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip popupSound;
     [SerializeField] private AudioClip letterSound;
 
-    [Header("Popup Fade Effect")]
-    [SerializeField] private float fadeDuration = 0.5f;
-    private CanvasGroup popupCanvasGroup;
+    [Header("Popups")]
+    [SerializeField] private GameObject popupPrefab;
+    [SerializeField] private float popupDuration = 1.5f;
+
+    [Header("Dialogues")]
+    [SerializeField] private GameObject dialoguePrefab;
+    [SerializeField] private float dialogueDuration = 1.5f; // Dialogue should be skippable instead of having a fixed duration. Change this later.
 
     private void Awake()
     {
@@ -30,24 +30,40 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private IEnumerator ShowPopupSequence(string message)
+    public IEnumerator ShowMessage(GameObject prefab, float duration, string message)
     {
-
-        popup = Instantiate(popupPrefab, transform);
-        popupTMP = GetComponentInChildren<TextMeshProUGUI>();
-        popupCanvasGroup = popup.GetComponent<CanvasGroup>();
-
-        if (popupPrefab == null || popupCanvasGroup == null || popupTMP == null)
+        if (prefab == null)
         {
-            Debug.LogError("UIManager: Missing references for popup components.");
+            Debug.LogError("UIManager: Prefab not assigned in the inspector.");
             yield break;
         }
 
-        yield return StartCoroutine(Fade(popupCanvasGroup, 0f, 1f, fadeDuration)); // Fade in
-        yield return StartCoroutine(WriteTextPopup(message, popupTMP, popupAudioSource, letterSound));
-        yield return new WaitForSeconds(popupDuration); // Let the popup stay visible for the specified duration
-        yield return StartCoroutine(Fade(popupCanvasGroup, 1f, 0f, fadeDuration)); // Fade out
-        Destroy(popup);
+        GameObject instance = Instantiate(prefab, transform);
+        CanvasGroup canvasGroup = instance.GetComponent<CanvasGroup>();
+        TextMeshProUGUI tmp = instance.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (canvasGroup == null || tmp == null)
+        {
+            Debug.LogError("UIManager: CanvasGroup or TextMeshProUGUI component not found on the prefab.");
+            Destroy(instance);
+            yield break;
+        }
+
+        yield return StartCoroutine(Fade(canvasGroup, 0f, 1f, fadeDuration));
+        yield return StartCoroutine(WriteTextUI(message, tmp, audioSource, letterSound));
+        yield return new WaitForSeconds(duration);
+        yield return StartCoroutine(Fade(canvasGroup, 1f, 0f, fadeDuration));
+        Destroy(instance);
+    }
+
+    public IEnumerator ShowPopup(UIMessageData data)
+    {
+        yield return ShowMessage(popupPrefab, popupDuration, data.messageText);
+    }
+
+    public IEnumerator ShowDialogue(DialogueData data)
+    {
+        yield return ShowMessage(dialoguePrefab, dialogueDuration, data.messageText);
     }
 
     private IEnumerator Fade(CanvasGroup canvasGroup, float start, float end, float duration)
@@ -63,7 +79,7 @@ public class UIManager : MonoBehaviour
         canvasGroup.alpha = end;
     }
 
-    private IEnumerator WriteTextPopup(string text, TMP_Text label, AudioSource audioSource, AudioClip sound)
+    private IEnumerator WriteTextUI(string text, TMP_Text label, AudioSource audioSource, AudioClip sound)
     {
         label.text = "";
         foreach (char c in text)
@@ -85,6 +101,20 @@ public class UIManager : MonoBehaviour
         Debug.Log("Testing Popup");
 
         StopAllCoroutines();
-        StartCoroutine(ShowPopupSequence(testMessage));
+        PopupData popupData = ScriptableObject.CreateInstance<PopupData>();
+        popupData.messageText = "This is a test popup message";
+        StartCoroutine(ShowPopup(popupData));
+    }
+
+    // To test: right click on the UIManager in the Inspector and select "Test Dialogue". Use while in play mode to work as expected.
+    [ContextMenu("Test Dialogue")]
+    private void TestDialogue()
+    {
+        Debug.Log("Testing Dialogue");
+
+        StopAllCoroutines();
+        DialogueData dialogueData = ScriptableObject.CreateInstance<DialogueData>();
+        dialogueData.messageText = "This is a test dialogue message";
+        StartCoroutine(ShowDialogue(dialogueData));
     }
 }
