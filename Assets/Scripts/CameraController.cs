@@ -3,11 +3,8 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-    [Header("Referencias")]
-    public Camera playerCam;
-
-    [Header("Sensibilidad")]
-    public float mouseSensitivity = 100f;
+    [SerializeField] private Camera playerCam;
+    [SerializeField] float mouseSensitivity = 100f;
 
     private float xRotation = 0f;
     private Vector2 lookInput;
