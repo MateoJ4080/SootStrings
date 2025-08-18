@@ -13,7 +13,6 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
 
             audioSources = new List<AudioSource>();
             for (int i = 0; i < poolSize; i++)
