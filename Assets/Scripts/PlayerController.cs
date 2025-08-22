@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
     [SerializeField] private float walkSpeed = 3.0f;
-    [SerializeField] private float jumpHeight = 2.0f;
     [SerializeField] private float playerGravity = -9.81f;
     [SerializeField] private float movementSmoothTime = 0.1f; // Time to reach target speed
 
@@ -18,6 +18,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 currentMoveVelocity;
     private Vector3 moveVelocityDamp;
     private bool isGrounded;
+
+    [Header("Steps Config")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] stepClips;
+    [SerializeField] private float distanceToStep;
+    private float distanceMoved;
+    private Vector3 lastPos;
 
     private void Awake()
     {
@@ -33,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Move();
+        HandleFootSteps();
     }
 
     public void Move()
@@ -64,13 +72,35 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+
+        if (context.canceled)
+        {
+            lastPos = transform.position;
+        }
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    private void HandleFootSteps()
     {
-        if (context.performed && isGrounded)
+        if (!isGrounded) return;
+
+        Vector3 horizontalMove = new Vector3(transform.position.x, 0, transform.position.z) -
+                                 new Vector3(lastPos.x, 0, lastPos.z);
+
+        distanceMoved += horizontalMove.magnitude;
+
+        if (distanceMoved >= distanceToStep && currentMoveVelocity.magnitude > 0.1f)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * playerGravity);
+            distanceMoved = 0f;
+            lastPos = transform.position;
+            PlayFootstepSound();
         }
+    }
+
+    private void PlayFootstepSound()
+    {
+        Debug.Log("PlayFootSteps");
+        if (stepClips.Length == 0) return;
+        AudioClip clip = stepClips[Random.Range(0, stepClips.Length)];
+        audioSource.PlayOneShot(clip);
     }
 }

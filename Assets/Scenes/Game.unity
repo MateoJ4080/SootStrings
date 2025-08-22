@@ -4974,12 +4974,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ffd2acc93cda054b8d3ee09cfc1f52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2.71
-  jumpHeight: 0.5
+  walkSpeed: 2
   playerGravity: -11
   movementSmoothTime: 0.1
-  StepClips: []
-  distanceToStep: 0
+  audioSource: {fileID: 1892384235}
+  stepClips:
+  - {fileID: 8300000, guid: 663125a4085d75649971c8e187f5b1d8, type: 3}
+  - {fileID: 8300000, guid: 342e4d770144c0e4a8276f9e220d1fba, type: 3}
+  - {fileID: 8300000, guid: 1a52123a0d5bf224aaf23a80c94e702a, type: 3}
+  - {fileID: 8300000, guid: 13fe0c8fc2618f8478781375cd73b2cb, type: 3}
+  - {fileID: 8300000, guid: 28ad3112253943343addf1a0233db500, type: 3}
+  - {fileID: 8300000, guid: 2ae6b3082e7917a48a5d9731061c2af7, type: 3}
+  distanceToStep: 31
 --- !u!114 &1892384227
 MonoBehaviour:
   m_ObjectHideFlags: 0
