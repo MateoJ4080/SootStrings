@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float wordInterval = 0.1f;
     [SerializeField] private float fadeDuration = 0.5f;
 
+    [Header("Interactable")]
+    [SerializeField] private TMP_Text interactText;
+
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip popupSound;
@@ -64,6 +67,11 @@ public class UIManager : MonoBehaviour
     public IEnumerator ShowDialogue(DialogueData data)
     {
         yield return ShowMessage(dialoguePrefab, dialogueDuration, data.messageText);
+    }
+
+    public void ShowInteractableText(bool show)
+    {
+        interactText.gameObject.SetActive(show);
     }
 
     private IEnumerator Fade(CanvasGroup canvasGroup, float start, float end, float duration)

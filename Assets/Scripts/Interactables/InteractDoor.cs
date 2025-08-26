@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class InteractDoor : MonoBehaviour, IInteractable
 {
@@ -10,6 +9,7 @@ public class InteractDoor : MonoBehaviour, IInteractable
     private bool _isOpen = false;
     private Coroutine _doorRoutine;
 
+    public bool CanInteract => true;
 
     public void Interact(GameObject gameObject)
     {

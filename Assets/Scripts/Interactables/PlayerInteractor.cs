@@ -15,22 +15,25 @@ public class PlayerInteractor : MonoBehaviour
 
     void CheckForInteractable()
     {
+        UIManager.Instance.ShowInteractableText(false);
+
         Ray ray = new(_camTransform.position, _camTransform.forward * interactDistance);
+        currentInteractable = null;
+
         if (!Physics.Raycast(ray, out RaycastHit hit))
         {
-            // UIManager.Instance.ClearInteractable();
             return;
         }
 
         if (!hit.collider.TryGetComponent(out IInteractable interactable))
         {
-            // UIManager.Instance.ClearInteractable();
             return;
         }
 
         Debug.Log("There's an interactable");
+
         currentInteractable = interactable;
-        // ShowInteractable()
+        UIManager.Instance.ShowInteractableText(interactable.CanInteract);
     }
 
     public void OnInteract(InputAction.CallbackContext callbackContext)
