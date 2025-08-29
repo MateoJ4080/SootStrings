@@ -1,54 +1,30 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-
-    [SerializeField] private int poolSize = 6;
-    private List<AudioSource> audioSources;
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-
-            audioSources = new List<AudioSource>();
-            for (int i = 0; i < poolSize; i++)
-            {
-                AudioSource source = gameObject.AddComponent<AudioSource>();
-                audioSources.Add(source);
-            }
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
-    public void PlaySound(AudioClip clip, float volume = 1f)
+    public IEnumerator PlayMusic(AudioClip clip, float volume = 1f)
     {
-        AudioSource source = GetAvailableSource();
-        if (source != null)
-        {
-            source.clip = clip;
-            source.volume = volume;
-            source.Play();
-        }
-        else
-        {
-            Debug.LogWarning("No AudioSource available to play sound");
-        }
+        musicSource.clip = clip;
+        musicSource.volume = volume;
+        musicSource.Play();
+        yield break;
     }
 
-    private AudioSource GetAvailableSource()
+    public IEnumerator PlaySFX(AudioClip clip, float volume = 1f)
     {
-        foreach (var source in audioSources)
-        {
-            if (!source.isPlaying)
-                return source;
-        }
-        return null;
+        sfxSource.PlayOneShot(clip, volume);
+        yield break;
     }
 }

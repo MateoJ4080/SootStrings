@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Popup Data", menuName = "UI/Popup Data")]
-public class PopupData : UIMessageData
+public class PopupData : ScriptableObject
 {
-    // Popup-specific data can be added here if needed.
+    [SerializeField] private string message;
 }

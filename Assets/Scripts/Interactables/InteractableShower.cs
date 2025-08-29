@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
 
-public class InteractableShower : IInteractable
+public class InteractableShower : MonoBehaviour, IInteractable
 {
-    public bool CanInteract => DayManager.Instance.CurrentDay == DayManager.Days.Day1;
+    public bool IsActive => DayManager.Instance.CurrentDay == DayManager.Days.Day2;
+    public event Action OnInteracted;
 
     public void Interact(GameObject gameObject)
     {
-
+        OnInteracted?.Invoke();
     }
 }

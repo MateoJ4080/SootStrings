@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 
 public class DayManager : MonoBehaviour
@@ -10,12 +8,21 @@ public class DayManager : MonoBehaviour
 
     public enum Days { Day1, Day2, Day3, Day4, Day5 }
     private Days currentDay = Days.Day1;
-    public Days CurrentDay => currentDay;
+    public Days CurrentDay
+    {
+
+        get => currentDay;
+        private set => currentDay = value;
+    }
+
+    // Day events
+    [SerializeField] private DayEvent[] day1Events;
+    [SerializeField] private DayEvent[] day2Events;
+    [SerializeField] private DayEvent[] day3Events;
+    [SerializeField] private DayEvent[] day4Events;
+    [SerializeField] private DayEvent[] day5Events;
 
     [SerializeField] private CanvasGroup canvasGroup;
-
-    // Event that handle methods who recieve a parameter of type Days and return a Task
-    public event Func<Days, Task> OnDayChangedAsync;
 
     void Awake()
     {
@@ -26,43 +33,78 @@ public class DayManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // Changes day and call every method subscribed to OnDayChangedAsync
-    public async Task ChangeDayAsync(Days newDay)
+
+    public void Start()
     {
-        Debug.Log("ChangeDayAsync");
+        StartCoroutine(RunDay(currentDay));
+    }
 
-        // Fade in
-        await FadeManager.Instance.FadeIn();
 
-        currentDay = newDay;
+    private IEnumerator RunDay(Days day)
+    {
+        Debug.Log("StartDay " + day);
 
-        if (OnDayChangedAsync != null)
+        yield return StartCoroutine(FadeManager.Instance.FadeOut());
+
+        // Execute day events
+        DayEvent[] events = GetEventsForDay(day);
+        foreach (var e in events)
         {
-            var invocationList = OnDayChangedAsync.GetInvocationList(); // Return array of delegates which work as a pointer to their methods
-            var tasks = new List<Task>();
-            foreach (Func<Days, Task> method in invocationList.Cast<Func<Days, Task>>())
+            if (e is ShowerEvent showerEvent)
             {
-                try
-                {
-                    tasks.Add(method.Invoke(newDay)); // Invokes all tasks assigned to the 
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError($"Error invoking OnDayChangedAsync: {e}");
-                }
+                var shower = FindFirstObjectByType<InteractableShower>();
+                showerEvent.Initialize(shower);
             }
-            await Task.WhenAll(tasks); // Wait for all tasks (methods) to finish before the fade out
+
+            yield return StartCoroutine(e.Execute());
         }
 
-        // Fade out
-        await FadeManager.Instance.FadeOut();
+        yield return StartCoroutine(FadeManager.Instance.FadeIn());
+
+        // Go to next day only if there's one
+        int nextDay = (int)day + 1;
+        if (nextDay < Enum.GetValues(typeof(Days)).Length)
+        {
+            currentDay++;
+            StartCoroutine(RunDay(currentDay));
+        }
+    }
+
+    private DayEvent[] GetEventsForDay(Days day)
+    {
+        switch (day)
+        {
+            case Days.Day1:
+                return day1Events;
+
+            case Days.Day2:
+                return day2Events;
+
+            case Days.Day3:
+                return day3Events;
+
+            case Days.Day4:
+                return day4Events;
+
+            case Days.Day5:
+                return day5Events;
+
+            default:
+                return new DayEvent[0];
+        }
     }
 
     // ====== TESTING ======
 
     [ContextMenu("Test ChangeDay")]
-    public async Task TestChangeDay()
+    public void TestChangeDay()
     {
-        await ChangeDayAsync(Days.Day1);
+        StartCoroutine(ChangeDayEffect());
+    }
+
+    public IEnumerator ChangeDayEffect()
+    {
+        yield return StartCoroutine(FadeManager.Instance.FadeIn());
+        yield return StartCoroutine(FadeManager.Instance.FadeOut());
     }
 }

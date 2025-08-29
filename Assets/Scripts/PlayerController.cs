@@ -98,7 +98,6 @@ public class PlayerController : MonoBehaviour
 
     private void PlayFootstepSound()
     {
-        Debug.Log("PlayFootSteps");
         if (stepClips.Length == 0) return;
         AudioClip clip = stepClips[Random.Range(0, stepClips.Length)];
         audioSource.PlayOneShot(clip);

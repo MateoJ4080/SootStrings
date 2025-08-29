@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 
 public class FadeManager : MonoBehaviour
@@ -11,20 +11,17 @@ public class FadeManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
         canvasGroup = FindFirstObjectByType<CanvasGroup>();
     }
 
-    private async Task Fade(float start, float end, float duration)
+    private IEnumerator Fade(float start, float end, float duration)
     {
         float timer = 0f;
 
-        if (canvasGroup == null) return;
+        if (canvasGroup == null) yield break;
 
         canvasGroup.alpha = start;
 
@@ -34,26 +31,25 @@ public class FadeManager : MonoBehaviour
             float t = timer / duration;
             float easedT = t * t;
             canvasGroup.alpha = Mathf.Lerp(start, end, easedT);
-            await Task.Yield();
+            yield return null;
         }
 
         canvasGroup.alpha = end;
     }
 
-    public async Task FadeIn() => await Fade(0f, 1f, fadeInDuration);
-    public async Task FadeOut() => await Fade(1f, 0f, fadeOutDuration);
+    public IEnumerator FadeIn() => Fade(canvasGroup.alpha, 1f, fadeInDuration);
+    public IEnumerator FadeOut() => Fade(canvasGroup.alpha, 0f, fadeOutDuration);
 
     // ====== TESTING ======
-
     [ContextMenu("Test FadeIn")]
     private void TestFadeIn()
     {
-        _ = Instance.Fade(0f, 1f, fadeInDuration); // Execute fade in
+        StartCoroutine(FadeIn());
     }
 
     [ContextMenu("Test FadeOut")]
     private void TestFadeOut()
     {
-        _ = Instance.Fade(1f, 0f, fadeOutDuration); // Execute fade out
+        StartCoroutine(FadeOut());
     }
 }

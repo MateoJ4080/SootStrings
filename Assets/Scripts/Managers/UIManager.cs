@@ -59,14 +59,14 @@ public class UIManager : MonoBehaviour
         Destroy(instance);
     }
 
-    public IEnumerator ShowPopup(UIMessageData data)
+    public IEnumerator ShowPopup(string text)
     {
-        yield return ShowMessage(popupPrefab, popupDuration, data.messageText);
+        yield return ShowMessage(popupPrefab, popupDuration, text);
     }
 
-    public IEnumerator ShowDialogue(DialogueData data)
+    public IEnumerator ShowDialogue(string text)
     {
-        yield return ShowMessage(dialoguePrefab, dialogueDuration, data.messageText);
+        yield return ShowMessage(dialoguePrefab, dialogueDuration, text);
     }
 
     public void ShowInteractableText(bool show)
@@ -109,9 +109,8 @@ public class UIManager : MonoBehaviour
         Debug.Log("Testing Popup");
 
         StopAllCoroutines();
-        PopupData popupData = ScriptableObject.CreateInstance<PopupData>();
-        popupData.messageText = "This is a test popup message";
-        StartCoroutine(ShowPopup(popupData));
+        string text = "This is a test popup message";
+        StartCoroutine(ShowPopup(text));
     }
 
     // To test: right click on the UIManager in the Inspector and select "Test Dialogue". Use while in play mode to work as expected.
@@ -121,8 +120,7 @@ public class UIManager : MonoBehaviour
         Debug.Log("Testing Dialogue");
 
         StopAllCoroutines();
-        DialogueData dialogueData = ScriptableObject.CreateInstance<DialogueData>();
-        dialogueData.messageText = "This is a test dialogue message";
-        StartCoroutine(ShowDialogue(dialogueData));
+        string text = "This is a test dialogue message";
+        StartCoroutine(ShowDialogue(text));
     }
 }
