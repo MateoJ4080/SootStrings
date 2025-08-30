@@ -14,11 +14,14 @@ public class ShowerEvent : DayEvent
     public override IEnumerator Execute()
     {
         Debug.Log("ShowerEvent");
+        // UI.Instance.ShowObjective("Take a shower to relieve stress");
         yield return new WaitUntil(() => _playerInteracted);
+        DayManager.Instance.SetPlayerActive(false);
         yield return FadeManager.Instance.FadeIn();
-        Debug.Log("Showering...");
         yield return AudioManager.Instance.PlaySFX(showerSound, 0.2f);
         yield return new WaitForSeconds(showerSound.length);
+        DayManager.Instance.SetPlayerActive(true);
+
         yield return null;
     }
 }

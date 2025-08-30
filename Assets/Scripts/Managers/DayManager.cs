@@ -1,28 +1,31 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DayManager : MonoBehaviour
 {
     public static DayManager Instance { get; private set; }
 
-    public enum Days { Day1, Day2, Day3, Day4, Day5 }
-    private Days currentDay = Days.Day1;
-    public Days CurrentDay
-    {
+    [Header("References")]
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerInteractor playerInteractor;
+    [SerializeField] private CanvasGroup canvasGroup;
 
-        get => currentDay;
-        private set => currentDay = value;
-    }
-
-    // Day events
+    [Header("Day Events")]
     [SerializeField] private DayEvent[] day1Events;
     [SerializeField] private DayEvent[] day2Events;
     [SerializeField] private DayEvent[] day3Events;
     [SerializeField] private DayEvent[] day4Events;
     [SerializeField] private DayEvent[] day5Events;
 
-    [SerializeField] private CanvasGroup canvasGroup;
+    public enum Days { Day1, Day2, Day3, Day4, Day5 }
+    private Days currentDay = Days.Day1;
+    public Days CurrentDay
+    {
+        get => currentDay;
+        private set => currentDay = value;
+    }
 
     void Awake()
     {
@@ -92,6 +95,14 @@ public class DayManager : MonoBehaviour
             default:
                 return new DayEvent[0];
         }
+    }
+
+    // Enable/disable player controls and interactor
+    public void SetPlayerActive(bool active)
+    {
+        playerController.enabled = active;
+        playerInteractor.enabled = active;
+        UIManager.Instance.ShowInteractableText(false);
     }
 
     // ====== TESTING ======
