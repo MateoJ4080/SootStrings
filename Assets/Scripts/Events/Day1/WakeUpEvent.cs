@@ -8,7 +8,8 @@ public class WakeUpEvent : DayEvent
     {
         Debug.Log("Executing WakeUpEvent");
         yield return _waitForSeconds2;
-        yield return UIManager.Instance.ShowDialogue("Ugh... where am I?");
+        yield return UIManager.Instance.ShowDialogue("Ugh… my head is killing me.");
+        yield return UIManager.Instance.ShowDialogue("What the hell did I do last night?");
         yield return fixedEventIntervalTime;
     }
 }
