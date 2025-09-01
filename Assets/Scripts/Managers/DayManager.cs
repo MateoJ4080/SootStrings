@@ -39,6 +39,7 @@ public class DayManager : MonoBehaviour
 
     public void Start()
     {
+        SetPlayerActive(false);
         StartCoroutine(RunDay(currentDay));
     }
 
@@ -48,6 +49,7 @@ public class DayManager : MonoBehaviour
         Debug.Log("StartDay " + day);
 
         yield return StartCoroutine(FadeManager.Instance.FadeOut());
+        SetPlayerActive(true);
 
         // Execute day events
         DayEvent[] events = GetEventsForDay(day);
@@ -63,6 +65,7 @@ public class DayManager : MonoBehaviour
         }
 
         yield return StartCoroutine(FadeManager.Instance.FadeIn());
+        SetPlayerActive(false);
 
         // Go to next day only if there's one
         int nextDay = (int)day + 1;
@@ -100,7 +103,9 @@ public class DayManager : MonoBehaviour
     // Enable/disable player controls and interactor
     public void SetPlayerActive(bool active)
     {
+        Debug.Log($"SetPlayerActive set to {active}");
         playerController.enabled = active;
+        playerController.GravityEnabled = active;
         playerInteractor.enabled = active;
         UIManager.Instance.ShowInteractableText(false);
     }

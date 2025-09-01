@@ -8,7 +8,15 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] private float walkSpeed = 3.0f;
     [SerializeField] private float playerGravity = -9.81f;
+    public bool GravityEnabled { get; set; } = true;
     [SerializeField] private float movementSmoothTime = 0.1f; // Time to reach target speed
+
+    [Header("Steps Config")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] stepClips;
+    [SerializeField] private float distanceToStep;
+    private float distanceMoved;
+    private Vector3 lastPos;
 
     private CharacterController controller;
     private Transform headTransform;
@@ -19,20 +27,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveVelocityDamp;
     private bool isGrounded;
 
-    [Header("Steps Config")]
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip[] stepClips;
-    [SerializeField] private float distanceToStep;
-    private float distanceMoved;
-    private Vector3 lastPos;
-
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         headTransform = transform.Find("Head");
         if (headTransform == null)
         {
-            Debug.LogError("Head transform not found! Please add a child GameObject named 'Head'.");
+            Debug.LogError("Head transform not found");
         }
         cameraTransform = Camera.main.transform;
     }
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         // Check if grounded and apply downward force in player if not
         isGrounded = controller.isGrounded;
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0 && GravityEnabled)
         {
             velocity.y = -2f;
         }
@@ -66,7 +67,11 @@ public class PlayerController : MonoBehaviour
         controller.Move(finalVelocity * Time.deltaTime);
 
         // Apply gravity
-        velocity.y += playerGravity * Time.deltaTime;
+        if (GravityEnabled)
+        {
+            velocity.y += playerGravity * Time.deltaTime;
+        }
+        else velocity.y = 0;
     }
 
     public void OnMove(InputAction.CallbackContext context)

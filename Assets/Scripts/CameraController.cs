@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class CameraController : MonoBehaviour
         lookInput = context.ReadValue<Vector2>();
     }
 
-    void RotateCamera()
+    private void RotateCamera()
     {
         float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
         float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
