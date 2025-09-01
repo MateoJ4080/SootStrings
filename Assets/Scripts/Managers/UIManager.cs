@@ -27,6 +27,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePrefab;
     [SerializeField] private float dialogueDuration = 1.5f; // Dialogue should be skippable instead of having a fixed duration. Change this later.
 
+    [Header("Objectives")]
+    [SerializeField] private TMP_Text objectiveText;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -74,17 +77,15 @@ public class UIManager : MonoBehaviour
         interactText.gameObject.SetActive(show);
     }
 
-    private IEnumerator Fade(CanvasGroup canvasGroup, float start, float end, float duration)
+    public void ShowObjectiveText(string text)
     {
-        float t = 0;
-        canvasGroup.alpha = start;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(start, end, t / duration);
-            yield return null;
-        }
-        canvasGroup.alpha = end;
+        objectiveText.text = text;
+        objectiveText.gameObject.SetActive(true);
+    }
+
+    public void HideObjectiveText()
+    {
+        objectiveText.gameObject.SetActive(false);
     }
 
     private IEnumerator WriteTextUI(string text, TMP_Text label, AudioSource audioSource, AudioClip sound)
@@ -100,6 +101,19 @@ public class UIManager : MonoBehaviour
             float waitTime = (c == ' ') ? wordInterval : letterInterval;
             yield return new WaitForSeconds(waitTime);
         }
+    }
+
+    private IEnumerator Fade(CanvasGroup canvasGroup, float start, float end, float duration)
+    {
+        float t = 0;
+        canvasGroup.alpha = start;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(start, end, t / duration);
+            yield return null;
+        }
+        canvasGroup.alpha = end;
     }
 
     // To test: right click on the UIManager in the Inspector and select "Test Popup". Use while in play mode to work as expected.

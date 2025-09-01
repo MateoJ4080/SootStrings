@@ -9,12 +9,13 @@ public class ShowerEvent : DayEvent
     public void Initialize(InteractableShower shower)
     {
         shower.OnInteracted += () => _playerInteracted = true;
+        shower.OnInteracted += () => UIManager.Instance.HideObjectiveText();
     }
 
     public override IEnumerator Execute()
     {
         Debug.Log("ShowerEvent");
-        // UI.Instance.ShowObjective("Take a shower to relieve stress");
+        UIManager.Instance.ShowObjectiveText("Take a shower to relieve stress");
         yield return new WaitUntil(() => _playerInteracted);
         DayManager.Instance.SetPlayerActive(false);
         yield return FadeManager.Instance.FadeIn();
