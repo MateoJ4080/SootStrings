@@ -4,33 +4,40 @@ using UnityEngine.InputSystem;
 public class PlayerInteractor : MonoBehaviour
 {
     [SerializeField] private Transform _camTransform;
+
     [SerializeField] private float interactDistance;
+    [SerializeField] private LayerMask interactableMask;
 
     private IInteractable currentInteractable;
 
     void Update()
     {
         CheckForInteractable();
+
+        Debug.DrawRay(_camTransform.position, _camTransform.forward * interactDistance, Color.red);
+
     }
 
     void CheckForInteractable()
     {
         UIManager.Instance.ShowInteractableText(false);
 
-        Ray ray = new(_camTransform.position, _camTransform.forward * interactDistance);
+        Ray ray = new(_camTransform.position, _camTransform.forward);
         currentInteractable = null;
 
-        if (!Physics.Raycast(ray, out RaycastHit hit))
+        if (!Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactableMask))
         {
             return;
         }
 
         if (!hit.collider.TryGetComponent(out IInteractable interactable))
         {
+            Debug.Log($"Hit {hit.collider.name}. Distance: {hit.distance}");
             return;
         }
 
-        Debug.Log("There's an interactable");
+        Debug.Log($"Hit {hit.collider.name}. Distance: {hit.distance}");
+
 
         currentInteractable = interactable;
         UIManager.Instance.ShowInteractableText(interactable.IsActive);
@@ -47,7 +54,7 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-    // Editor
+    // Show gizmos in the editor
     void OnDrawGizmosSelected()
     {
         if (_camTransform == null) return;
