@@ -2052,6 +2052,74 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &445664719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445664722}
+  - component: {fileID: 445664721}
+  - component: {fileID: 445664720}
+  m_Layer: 0
+  m_Name: FaintTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &445664720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445664719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943d1fd06aa3c824ab3642df0c9bbbe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phoneEvent: {fileID: 1615593427}
+  isFaintTrigger: 1
+--- !u!65 &445664721
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445664719}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8079817, y: 0.40743816, z: 0.29251766}
+  m_Center: {x: 0.021576285, y: -0.29628092, z: 0.2927165}
+--- !u!4 &445664722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445664719}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.354, y: 0.484, z: -8.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &457573059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5368,6 +5436,74 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 25044f09f11e3b54a91cfd10949911e2, type: 3}
   m_PrefabInstance: {fileID: 1545539114}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1580482738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1580482742}
+  - component: {fileID: 1580482741}
+  - component: {fileID: 1580482739}
+  m_Layer: 0
+  m_Name: StartPhoneTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1580482739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580482738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943d1fd06aa3c824ab3642df0c9bbbe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phoneEvent: {fileID: 1615593427}
+  isFaintTrigger: 0
+--- !u!65 &1580482741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580482738}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.266653, y: 0.7718507, z: 1.2331438}
+  m_Center: {x: 0.035224378, y: 0.11407465, z: -0.1165719}
+--- !u!4 &1580482742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580482738}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.392, y: 0.2411, z: -2.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606694652
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,6 +5640,7 @@ GameObject:
   - component: {fileID: 1615593425}
   - component: {fileID: 1615593424}
   - component: {fileID: 1615593426}
+  - component: {fileID: 1615593427}
   m_Layer: 0
   m_Name: Day1Events
   m_TagString: Untagged
@@ -5568,6 +5705,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixedEventIntervalTime: 3
   bed: {fileID: 335973600}
+  phoneTriggerZone: {fileID: 1580482738}
+--- !u!114 &1615593427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615593422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e130e2aed075244811a8f0bf6eaad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixedEventIntervalTime: 3
+  phone: {fileID: 719151713}
+  player: {fileID: 1892384225}
+  faintTriggerZone: {fileID: 445664719}
+  fiantSound: {fileID: 8300000, guid: 14cde32970d507748bf0cb162b352147, type: 3}
 --- !u!1001 &1644243390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6655,7 +6810,7 @@ GameObject:
   - component: {fileID: 1892384236}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8353,3 +8508,5 @@ SceneRoots:
   - {fileID: 1090392626}
   - {fileID: 591215949}
   - {fileID: 2138005204}
+  - {fileID: 1580482742}
+  - {fileID: 445664722}

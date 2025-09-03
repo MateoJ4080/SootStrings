@@ -8,6 +8,8 @@ public class GoingToBedEvent : DayEvent
     [SerializeField] private InteractableBed bed;
     private bool _playerInteracted = false;
 
+    [SerializeField] private GameObject phoneTriggerZone;
+
     void Awake()
     {
         bed.OnInteracted += () => _playerInteracted = true;
@@ -17,6 +19,8 @@ public class GoingToBedEvent : DayEvent
     {
         yield return new WaitUntil(() => _playerInteracted);
         yield return FadeManager.Instance.FadeIn();
+        yield return FadeManager.Instance.FadeOut();
+        phoneTriggerZone.SetActive(true);
         yield break;
     }
 }

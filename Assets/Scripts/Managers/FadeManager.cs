@@ -40,6 +40,21 @@ public class FadeManager : MonoBehaviour
     public IEnumerator FadeIn() => Fade(canvasGroup.alpha, 1f, fadeInDuration);
     public IEnumerator FadeOut() => Fade(canvasGroup.alpha, 0f, fadeOutDuration);
 
+    public IEnumerator FadeTo(float targetAlpha, float duration)
+    {
+        float startAlpha = canvasGroup.alpha;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.unscaledDeltaTime;
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+            yield return null;
+        }
+
+        canvasGroup.alpha = targetAlpha;
+    }
+
     // ====== TESTING ======
     [ContextMenu("Test FadeIn")]
     private void TestFadeIn()

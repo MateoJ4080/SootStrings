@@ -24,11 +24,11 @@ public class ShowerEvent : DayEvent
         DayManager.Instance.SetPlayerActive(false);
         yield return FadeManager.Instance.FadeIn();
         yield return AudioManager.Instance.PlaySFX(showerSound, 0.2f);
-        playerHasShowered = true;
         yield return new WaitForSeconds(showerSound.length);
+        playerHasShowered = true;
         yield return FadeManager.Instance.FadeOut();
-
         DayManager.Instance.SetPlayerActive(true);
+
         yield return null;
     }
 }
