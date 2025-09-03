@@ -13,11 +13,11 @@ public class DayManager : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
 
     [Header("Day Events")]
-    [SerializeField] private DayEvent[] day1Events;
-    [SerializeField] private DayEvent[] day2Events;
-    [SerializeField] private DayEvent[] day3Events;
-    [SerializeField] private DayEvent[] day4Events;
-    [SerializeField] private DayEvent[] day5Events;
+    [SerializeField] private GameObject day1Events;
+    [SerializeField] private GameObject day2Events;
+    [SerializeField] private GameObject day3Events;
+    [SerializeField] private GameObject day4Events;
+    [SerializeField] private GameObject day5Events;
 
     public enum Days { Day1, Day2, Day3, Day4, Day5 }
     private Days currentDay = Days.Day1;
@@ -53,7 +53,7 @@ public class DayManager : MonoBehaviour
 
         // Execute day events
         DayEvent[] events = GetEventsForDay(day);
-        foreach (var e in events)
+        foreach (DayEvent e in events)
         {
             if (e is ShowerEvent showerEvent)
             {
@@ -78,26 +78,21 @@ public class DayManager : MonoBehaviour
 
     private DayEvent[] GetEventsForDay(Days day)
     {
-        switch (day)
+        if (day1Events == null || day2Events == null || day3Events == null || day4Events == null || day5Events == null)
         {
-            case Days.Day1:
-                return day1Events;
-
-            case Days.Day2:
-                return day2Events;
-
-            case Days.Day3:
-                return day3Events;
-
-            case Days.Day4:
-                return day4Events;
-
-            case Days.Day5:
-                return day5Events;
-
-            default:
-                return new DayEvent[0];
+            Debug.LogError("DayManager: One or more day event GameObjects are not assigned in the inspector.");
+            return new DayEvent[0];
         }
+
+        return day switch
+        {
+            Days.Day1 => day1Events.GetComponents<DayEvent>(),
+            Days.Day2 => day2Events.GetComponents<DayEvent>(),
+            Days.Day3 => day3Events.GetComponents<DayEvent>(),
+            Days.Day4 => day4Events.GetComponents<DayEvent>(),
+            Days.Day5 => day5Events.GetComponents<DayEvent>(),
+            _ => new DayEvent[0],
+        };
     }
 
     // Enable/disable player controls and interactor

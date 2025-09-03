@@ -4,6 +4,9 @@ using UnityEngine;
 public class ShowerEvent : DayEvent
 {
     [SerializeField] private AudioClip showerSound;
+
+    private bool playerHasShowered = false;
+    public bool PlayerHasShowered => playerHasShowered;
     private bool _playerInteracted = false;
 
     public void Initialize(InteractableShower shower)
@@ -15,14 +18,17 @@ public class ShowerEvent : DayEvent
     public override IEnumerator Execute()
     {
         Debug.Log("ShowerEvent");
-        UIManager.Instance.ShowObjectiveText("Take a shower to relieve stress");
+        UIManager.Instance.ShowDialogue("Ugh this headache... I don't feel like doing anything...");
+        UIManager.Instance.ShowObjectiveText("Take a shower and go to bed to relieve stress");
         yield return new WaitUntil(() => _playerInteracted);
         DayManager.Instance.SetPlayerActive(false);
         yield return FadeManager.Instance.FadeIn();
         yield return AudioManager.Instance.PlaySFX(showerSound, 0.2f);
+        playerHasShowered = true;
         yield return new WaitForSeconds(showerSound.length);
-        DayManager.Instance.SetPlayerActive(true);
+        yield return FadeManager.Instance.FadeOut();
 
+        DayManager.Instance.SetPlayerActive(true);
         yield return null;
     }
 }
