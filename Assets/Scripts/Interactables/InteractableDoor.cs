@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class InteractDoor : MonoBehaviour, IInteractable
+public class InteractableDoor : MonoBehaviour, IInteractable
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private float _speed = 1f;
@@ -26,7 +26,6 @@ public class InteractDoor : MonoBehaviour, IInteractable
     // Using coroutine to avoid doing it on the Update
     private IEnumerator AnimateDoor(float target)
     {
-
         float current = _animator.GetFloat("DoorProgress");
 
         while (!Mathf.Approximately(current, target))

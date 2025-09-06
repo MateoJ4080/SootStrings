@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PhoneTrigger : MonoBehaviour
 {
-    [SerializeField] private PhoneEvent phoneEvent;
+    [SerializeField] private LandlinePhoneEvent landlinePhoneEvent;
     [SerializeField] private bool isFaintTrigger = false;
 
     private void OnTriggerEnter(Collider other)
@@ -10,8 +10,8 @@ public class PhoneTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         if (isFaintTrigger)
-            phoneEvent.OnFaintTrigger();
+            landlinePhoneEvent.OnFaintTrigger();
         else
-            phoneEvent.OnStartEffectsTrigger();
+            landlinePhoneEvent.OnStartEffectsTrigger();
     }
 }

@@ -1,11 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class PhoneEvent : DayEvent
+public class LandlinePhoneEvent : DayEvent
 {
-    [SerializeField] private InteractablePhone phone;
+    [SerializeField] private InteractableLandlinePhone landlinePhone;
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject faintTriggerZone;
+    [SerializeField] private GameObject faintTrigger;
     [SerializeField] private AudioClip fiantSound;
 
     private bool effectsStarted = false;
@@ -27,8 +27,8 @@ public class PhoneEvent : DayEvent
         // Vector3 direction = faintTriggerZone.transform.position - player.transform.position;
         // float distance = direction.magnitude;
 
-        phone.Ring();
-        faintTriggerZone.SetActive(true);
+        landlinePhone.Ring();
+        faintTrigger.SetActive(true);
         yield return FadeManager.Instance.FadeTo(0.5f, 3f);
     }
 

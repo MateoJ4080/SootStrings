@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class InteractableBed : MonoBehaviour, IInteractable
 {
-    [SerializeField] private ShowerEvent showerEvent;
+    private bool isActive;
+    public bool IsActive
+    {
+        get => isActive;
+        set => isActive = value;
+    }
 
-    public bool IsActive => showerEvent.PlayerHasShowered;
     public event Action OnInteracted;
 
     public void Interact(GameObject gameObject)

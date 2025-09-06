@@ -5,6 +5,7 @@ using UnityEngine;
 public class WakeUpEvent : DayEvent
 {
     [SerializeField] private PlayerCinematics playerCinematics;
+    [SerializeField] private InteractableShower shower;
 
     public override IEnumerator Execute()
     {
@@ -15,6 +16,7 @@ public class WakeUpEvent : DayEvent
         DayManager.Instance.SetPlayerActive(true);
         yield return UIManager.Instance.ShowDialogue("Ugh… my head is killing me.");
         yield return UIManager.Instance.ShowDialogue("What the hell did I do last night?");
-        yield return fixedEventIntervalTime;
+        yield return _waitForSeconds2;
+        shower.IsActive = true;
     }
 }

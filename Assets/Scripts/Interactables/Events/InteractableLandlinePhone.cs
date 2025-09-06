@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public class InteractablePhone : MonoBehaviour, IInteractable
+public class InteractableLandlinePhone : MonoBehaviour, IInteractable
 {
     private bool isActive;
-    public bool IsActive => isActive;
+    public bool IsActive
+    {
+        get => isActive;
+        set => isActive = value;
+    }
 
     [SerializeField] private AudioSource ringAudio;
 

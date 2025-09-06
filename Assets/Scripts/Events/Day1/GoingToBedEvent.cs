@@ -1,14 +1,13 @@
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.UI;
 using UnityEngine;
 
 public class GoingToBedEvent : DayEvent
 {
-    [SerializeField] private InteractableBed bed;
     private bool _playerInteracted = false;
 
-    [SerializeField] private GameObject phoneTriggerZone;
+    [SerializeField] private InteractableBed bed;
+    [SerializeField] private InteractableCellphone cellphone;
+    [SerializeField] private GameObject landlinePhoneTrigger;
 
     void Awake()
     {
@@ -18,9 +17,12 @@ public class GoingToBedEvent : DayEvent
     public override IEnumerator Execute()
     {
         yield return new WaitUntil(() => _playerInteracted);
+        bed.IsActive = false;
+
         yield return FadeManager.Instance.FadeIn();
         yield return FadeManager.Instance.FadeOut();
-        phoneTriggerZone.SetActive(true);
+        cellphone.IsActive = true;
+        landlinePhoneTrigger.SetActive(true);
         yield break;
     }
 }

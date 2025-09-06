@@ -801,7 +801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41ee376cdb134f249b8cc32f49bd3674, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.271
+      value: -2.569
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41ee376cdb134f249b8cc32f49bd3674, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1229,8 +1229,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.030641282, y: 0.03952844, z: 0.009490689}
-  m_Center: {x: 2.5182222e-22, y: 0.0000000018959128, z: 0.0076101716}
+  m_Size: {x: 0.030641282, y: 0.03952844, z: 0.008737028}
+  m_Center: {x: -5.7641246e-24, y: 0.0000000018959125, z: 0.0072333487}
 --- !u!114 &335973600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,7 +1243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72195ddf9277d3479971253083dca1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showerEvent: {fileID: 1615593424}
 --- !u!1 &353407799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,7 +2081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943d1fd06aa3c824ab3642df0c9bbbe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phoneEvent: {fileID: 1615593427}
+  landlinePhoneEvent: {fileID: 788031938}
   isFaintTrigger: 1
 --- !u!65 &445664721
 BoxCollider:
@@ -2858,6 +2857,147 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &717695091
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.4007769
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.214
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.806
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70105743
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7010575
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.09229579
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.092295796
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: -6372934226963783439, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6310760985005197290, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5754062008462384443, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5486932321323169991, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3602931489584357904, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1653198804587753757, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 49277190303971419, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 371441497948727365, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Name
+      value: Mobile Phone Fixed
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146135470113100320, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 717695093}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 717695094}
+  m_SourcePrefab: {fileID: 100100000, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+--- !u!1 &717695092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
+  m_PrefabInstance: {fileID: 717695091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &717695093
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717695092}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.18911594, y: 0.29291165, z: 0.142232}
+  m_Center: {x: 0.005547889, y: -0.020929888, z: 0.046626404}
+--- !u!114 &717695094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717695092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2033876cc04f343bef845f6dae829c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &719151707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33df8e3f6557b6d4f90cfa31c1a3f284, type: 3}
@@ -3095,6 +3235,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 788031936}
+  - component: {fileID: 788031937}
+  - component: {fileID: 788031938}
   m_Layer: 0
   m_Name: Day2Events
   m_TagString: Untagged
@@ -3117,6 +3259,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 290801719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788031937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788031935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b45cd86aef9fb47bf9f58e7c1062ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellphone: {fileID: 717695094}
+--- !u!114 &788031938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788031935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e130e2aed075244811a8f0bf6eaad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  landlinePhone: {fileID: 719151713}
+  player: {fileID: 1892384225}
+  faintTrigger: {fileID: 445664719}
+  fiantSound: {fileID: 8300000, guid: 14cde32970d507748bf0cb162b352147, type: 3}
 --- !u!1 &813212397
 GameObject:
   m_ObjectHideFlags: 0
@@ -5466,7 +5637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943d1fd06aa3c824ab3642df0c9bbbe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phoneEvent: {fileID: 1615593427}
+  landlinePhoneEvent: {fileID: 788031938}
   isFaintTrigger: 0
 --- !u!65 &1580482741
 BoxCollider:
@@ -5640,7 +5811,6 @@ GameObject:
   - component: {fileID: 1615593425}
   - component: {fileID: 1615593424}
   - component: {fileID: 1615593426}
-  - component: {fileID: 1615593427}
   m_Layer: 0
   m_Name: Day1Events
   m_TagString: Untagged
@@ -5675,8 +5845,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9d007864b07924dad697491b3ecb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedEventIntervalTime: 3
   showerSound: {fileID: 8300000, guid: 3135158b7da46d6448c8b798277121f3, type: 3}
+  bed: {fileID: 335973600}
 --- !u!114 &1615593425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5689,8 +5859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1fd412eff45bf41ba0e2b268051641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedEventIntervalTime: 3
   playerCinematics: {fileID: 1892384236}
+  shower: {fileID: 605121117}
 --- !u!114 &1615593426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5703,26 +5873,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd77e437e902ad49a43a17e6f221016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedEventIntervalTime: 3
   bed: {fileID: 335973600}
-  phoneTriggerZone: {fileID: 1580482738}
---- !u!114 &1615593427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615593422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e130e2aed075244811a8f0bf6eaad4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fixedEventIntervalTime: 3
-  phone: {fileID: 719151713}
-  player: {fileID: 1892384225}
-  faintTriggerZone: {fileID: 445664719}
-  fiantSound: {fileID: 8300000, guid: 14cde32970d507748bf0cb162b352147, type: 3}
+  cellphone: {fileID: 717695094}
+  landlinePhoneTrigger: {fileID: 1580482738}
 --- !u!1001 &1644243390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8510,3 +8663,4 @@ SceneRoots:
   - {fileID: 2138005204}
   - {fileID: 1580482742}
   - {fileID: 445664722}
+  - {fileID: 717695091}
