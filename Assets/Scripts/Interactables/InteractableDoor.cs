@@ -9,7 +9,7 @@ public class InteractableDoor : MonoBehaviour, IInteractable
     private bool _isOpen = false;
     private Coroutine _doorRoutine;
 
-    public bool IsActive => true;
+    public bool IsActive { get; set; } = true;
 
     public void Interact(GameObject gameObject)
     {

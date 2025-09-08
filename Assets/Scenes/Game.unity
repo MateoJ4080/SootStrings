@@ -546,6 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7d927f93f3f1d4a83649725fc58477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugConfig: {fileID: 11400000, guid: 9cdb76da8722f4b47bf82826f597d253, type: 2}
   letterInterval: 0.05
   wordInterval: 0.05
   fadeDuration: 0.5
@@ -5751,7 +5752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b13e0ba85135944092f199bdf60200d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.131
+      value: 0.057
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b13e0ba85135944092f199bdf60200d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8068,6 +8069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38c9022ef80b544e91ef16a149667ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugConfig: {fileID: 11400000, guid: 9cdb76da8722f4b47bf82826f597d253, type: 2}
   playerController: {fileID: 1892384226}
   playerInteractor: {fileID: 1892384234}
   canvasGroup: {fileID: 896013413}

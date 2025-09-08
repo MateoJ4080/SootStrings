@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DayManager : MonoBehaviour
 {
     public static DayManager Instance { get; private set; }
+
+    [Header("Settings")]
+    [SerializeField] DebugConfig debugConfig;
 
     [Header("References")]
     [SerializeField] private PlayerController playerController;
@@ -39,8 +43,35 @@ public class DayManager : MonoBehaviour
 
     public void Start()
     {
-        SetPlayerActive(false);
-        StartCoroutine(RunDay(currentDay));
+        if (debugConfig.autoStartDays)
+        {
+            Vector3 wakeUpPos = new(-0.08218401f, 1.202109f, -2.023998f);
+            playerController.gameObject.transform.position = wakeUpPos;
+
+            SetPlayerActive(false);
+            StartCoroutine(RunDay(currentDay));
+        }
+
+        // Debug: if not in autoStart mode, enable all interactables for testing.
+        if (!debugConfig.autoStartDays)
+        {
+            playerController.gameObject.transform.position = new(-3f, 0f, -10f);
+
+            var monos = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
+            var interactables = monos.OfType<IInteractable>();
+            var dayEvents = monos.OfType<DayEvent>();
+
+            foreach (IInteractable interactable in interactables)
+            {
+                interactable.IsActive = true;
+            }
+
+            foreach (DayEvent dayEvent in dayEvents)
+            {
+                StartCoroutine(dayEvent.Execute());
+            }
+        }
+
     }
 
 

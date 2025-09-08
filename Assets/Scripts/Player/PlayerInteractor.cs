@@ -32,11 +32,11 @@ public class PlayerInteractor : MonoBehaviour
 
         if (!hit.collider.TryGetComponent(out IInteractable interactable))
         {
-            Debug.Log($"Hit {hit.collider.name}. Distance: {hit.distance}");
+            Debug.Log($"Hit {hit.collider.name}");
             return;
         }
 
-        Debug.Log($"Hit {hit.collider.name}. Distance: {hit.distance}");
+        Debug.Log($"Hit {hit.collider.name}");
 
 
         currentInteractable = interactable;

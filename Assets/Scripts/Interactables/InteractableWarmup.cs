@@ -22,6 +22,6 @@ public class InteractableWarmup : MonoBehaviour
 // Minimal class to "wake up" the JIT
 public class DummyInteractable : MonoBehaviour, IInteractable
 {
-    public bool IsActive => true;
+    public bool IsActive { get; set; } = false;
     public void Interact(GameObject interactor) { }
 }

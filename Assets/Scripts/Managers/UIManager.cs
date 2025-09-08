@@ -6,6 +6,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
+    [Header("Settings")]
+    [SerializeField] DebugConfig debugConfig;
+
     [Header("General")]
     [SerializeField] private float letterInterval = 0.1f;
     [SerializeField] private float wordInterval = 0.1f;
@@ -64,11 +67,15 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator ShowPopup(string text)
     {
+        if (!debugConfig.showDialogs) yield break;
+
         yield return ShowMessage(popupPrefab, popupDuration, text);
     }
 
     public IEnumerator ShowDialogue(string text)
     {
+        if (!debugConfig.showDialogs) yield break;
+
         yield return ShowMessage(dialoguePrefab, dialogueDuration, text);
     }
 

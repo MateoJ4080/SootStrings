@@ -2,6 +2,6 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    bool IsActive { get; }
+    bool IsActive { get; set; }
     void Interact(GameObject gameObject);
 }
