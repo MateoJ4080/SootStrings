@@ -92,6 +92,8 @@ public class UIManager : MonoBehaviour
 
     public void HideObjectiveText()
     {
+        if (!debugConfig.showObjective) return;
+
         objectiveText.gameObject.SetActive(false);
     }
 
