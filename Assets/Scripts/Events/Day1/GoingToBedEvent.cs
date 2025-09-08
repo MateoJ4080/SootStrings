@@ -7,7 +7,6 @@ public class GoingToBedEvent : DayEvent
 
     [SerializeField] private InteractableBed bed;
     [SerializeField] private InteractableCellphone cellphone;
-    [SerializeField] private GameObject landlinePhoneTrigger;
 
     void Awake()
     {
@@ -22,7 +21,6 @@ public class GoingToBedEvent : DayEvent
         yield return FadeManager.Instance.FadeIn();
         yield return FadeManager.Instance.FadeOut();
         cellphone.IsActive = true;
-        landlinePhoneTrigger.SetActive(true);
         yield break;
     }
 }

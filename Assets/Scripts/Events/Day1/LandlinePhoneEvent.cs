@@ -15,23 +15,24 @@ public class LandlinePhoneEvent : DayEvent
     {
         yield return new WaitUntil(() => effectsStarted);
 
-        StartCoroutine(DoEffects());
+        StartCoroutine(RingLandline());
 
         yield return new WaitUntil(() => fainted);
+        DayManager.Instance.SetPlayerActive(false);
         yield return FadeManager.Instance.FadeIn();
         yield return AudioManager.Instance.PlaySFX(fiantSound);
     }
 
-    private IEnumerator DoEffects()
+    private IEnumerator RingLandline()
     {
         // Vector3 direction = faintTriggerZone.transform.position - player.transform.position;
         // float distance = direction.magnitude;
 
-        landlinePhone.Ring();
+        yield return landlinePhone.Ring();
         faintTrigger.SetActive(true);
         yield return FadeManager.Instance.FadeTo(0.5f, 3f);
     }
 
-    public void OnStartEffectsTrigger() => effectsStarted = true;
+    public void OnStartLandlineRing() => effectsStarted = true;
     public void OnFaintTrigger() => fainted = true;
 }

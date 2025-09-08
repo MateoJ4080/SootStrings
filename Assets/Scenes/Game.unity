@@ -3273,6 +3273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellphone: {fileID: 717695094}
+  landlineEvent: {fileID: 788031938}
 --- !u!114 &788031938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5620,7 +5621,7 @@ GameObject:
   - component: {fileID: 1580482741}
   - component: {fileID: 1580482739}
   m_Layer: 0
-  m_Name: StartPhoneTrigger
+  m_Name: LandlineRingTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5862,6 +5863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCinematics: {fileID: 1892384236}
   shower: {fileID: 605121117}
+  debugConfig: {fileID: 11400000, guid: 9cdb76da8722f4b47bf82826f597d253, type: 2}
 --- !u!114 &1615593426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5876,7 +5878,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bed: {fileID: 335973600}
   cellphone: {fileID: 717695094}
-  landlinePhoneTrigger: {fileID: 1580482738}
 --- !u!1001 &1644243390
 PrefabInstance:
   m_ObjectHideFlags: 0
