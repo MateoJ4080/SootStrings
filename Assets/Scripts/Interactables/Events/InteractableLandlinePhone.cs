@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class InteractableLandlinePhone : MonoBehaviour, IInteractable
 {
@@ -16,7 +17,7 @@ public class InteractableLandlinePhone : MonoBehaviour, IInteractable
         StopRing();
     }
 
-    public void Ring()
+    public IEnumerator Ring()
     {
         if (!ringAudio.isPlaying)
         {
@@ -24,6 +25,7 @@ public class InteractableLandlinePhone : MonoBehaviour, IInteractable
             ringAudio.loop = true;
             ringAudio.Play();
         }
+        yield break;
     }
 
     public void StopRing()

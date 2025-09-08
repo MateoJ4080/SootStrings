@@ -55,7 +55,7 @@ public class DayManager : MonoBehaviour
         // Debug: if not in autoStart mode, enable all interactables for testing.
         if (!debugConfig.autoStartDays)
         {
-            playerController.gameObject.transform.position = new(-3f, 0f, -10f);
+            playerController.gameObject.transform.position = new(-3f, 1.5f, -10f);
 
             var monos = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
             var interactables = monos.OfType<IInteractable>();

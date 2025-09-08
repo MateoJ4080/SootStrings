@@ -11,7 +11,5 @@ public class PhoneTrigger : MonoBehaviour
 
         if (isFaintTrigger)
             landlinePhoneEvent.OnFaintTrigger();
-        else
-            landlinePhoneEvent.OnStartEffectsTrigger();
     }
 }
