@@ -32,11 +32,12 @@ public class PlayerInteractor : MonoBehaviour
 
         if (!hit.collider.TryGetComponent(out IInteractable interactable))
         {
-            Debug.Log($"Hit {hit.collider.name}");
             return;
         }
+        float distanceToPlayer = Vector3.Distance(_camTransform.position, hit.point);
 
-        Debug.Log($"Hit {hit.collider.name}");
+        if (distanceToPlayer > interactable.InteractionRange)
+            return;
 
 
         currentInteractable = interactable;

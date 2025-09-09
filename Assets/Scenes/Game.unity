@@ -269,8 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a618ca5686e0d8544bd5fd53c5b6b801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 18846619}
   _speed: 1
+  _animator: {fileID: 18846619}
+  interactionRange: 1
 --- !u!65 &18846618
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1230,8 +1231,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.030641282, y: 0.03952844, z: 0.008737028}
-  m_Center: {x: -5.7641246e-24, y: 0.0000000018959125, z: 0.0072333487}
+  m_Size: {x: 0.030641282, y: 0.03952844, z: 0.0041765166}
+  m_Center: {x: -1.7633571e-22, y: 0.0000000018959125, z: 0.004953097}
 --- !u!114 &335973600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1244,6 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72195ddf9277d3479971253083dca1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionRange: 0
 --- !u!1 &353407799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,8 +1320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a618ca5686e0d8544bd5fd53c5b6b801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 376712683}
   _speed: 1
+  _animator: {fileID: 376712683}
+  interactionRange: 1
 --- !u!65 &376712682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2562,6 +2565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77047e5ea7c0a86489f12de0d4a6642a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionRange: 0
 --- !u!65 &605121119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2872,7 +2876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.214
+      value: 0.487
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ead3af3b2deee384b8892c4af7c1db32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2999,6 +3003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2033876cc04f343bef845f6dae829c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionRange: 2
 --- !u!1 &719151707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33df8e3f6557b6d4f90cfa31c1a3f284, type: 3}
@@ -3113,6 +3118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc0b87c3ca67b94482d1e79221bd74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionRange: 0
   ringAudio: {fileID: 719151708}
 --- !u!4 &736195791 stripped
 Transform:
@@ -3535,8 +3541,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a618ca5686e0d8544bd5fd53c5b6b801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 847025298}
   _speed: 1
+  _animator: {fileID: 847025298}
+  interactionRange: 1
 --- !u!65 &847025297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7270,7 +7277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camTransform: {fileID: 330585546}
-  interactDistance: 1
+  interactDistance: 2
   interactableMask:
     serializedVersion: 2
     m_Bits: 64
@@ -7779,8 +7786,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a618ca5686e0d8544bd5fd53c5b6b801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1936141168}
   _speed: 1
+  _animator: {fileID: 1936141168}
+  interactionRange: 1
 --- !u!65 &1936141167
 BoxCollider:
   m_ObjectHideFlags: 0

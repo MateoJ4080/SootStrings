@@ -3,13 +3,22 @@ using System.Collections;
 
 public class InteractableDoor : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Animator _animator;
     [SerializeField] private float _speed = 1f;
+    [SerializeField] private Animator _animator;
 
     private bool _isOpen = false;
     private Coroutine _doorRoutine;
 
-    public bool IsActive { get; set; } = true;
+    [SerializeField] private float interactionRange = 1f;
+    public float InteractionRange => interactionRange;
+
+    private bool isActive;
+    public bool IsActive
+    {
+        get => isActive;
+        set => isActive = value;
+    }
+
 
     public void Interact(GameObject gameObject)
     {

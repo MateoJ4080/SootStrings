@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class InteractableCellphone : MonoBehaviour, IInteractable
 {
+    [SerializeField] private float interactionRange = 2f;
+    public float InteractionRange => interactionRange;
+
     private bool isActive;
     public bool IsActive
     {

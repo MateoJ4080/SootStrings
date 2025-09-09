@@ -23,5 +23,6 @@ public class InteractableWarmup : MonoBehaviour
 public class DummyInteractable : MonoBehaviour, IInteractable
 {
     public bool IsActive { get; set; } = false;
+    public float InteractionRange { get; set; } = 1f;
     public void Interact(GameObject interactor) { }
 }

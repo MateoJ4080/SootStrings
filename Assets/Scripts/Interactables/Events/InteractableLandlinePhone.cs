@@ -3,6 +3,9 @@ using System.Collections;
 
 public class InteractableLandlinePhone : MonoBehaviour, IInteractable
 {
+    [SerializeField] private float interactionRange = 2f;
+    public float InteractionRange => interactionRange;
+
     private bool isActive;
     public bool IsActive
     {
