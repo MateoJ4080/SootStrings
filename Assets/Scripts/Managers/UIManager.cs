@@ -39,15 +39,15 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public IEnumerator ShowMessage(GameObject prefab, float duration, string message)
+    public IEnumerator ShowMessage(Sprite background, float duration, string message)
     {
-        if (prefab == null)
+        if (dialoguePrefab == null)
         {
             Debug.LogError("UIManager: Prefab not assigned in the inspector.");
             yield break;
         }
 
-        GameObject instance = Instantiate(prefab, transform);
+        GameObject instance = Instantiate(dialoguePrefab, transform);
         CanvasGroup canvasGroup = instance.GetComponent<CanvasGroup>();
         TextMeshProUGUI tmp = instance.GetComponentInChildren<TextMeshProUGUI>();
 
@@ -69,14 +69,14 @@ public class UIManager : MonoBehaviour
     {
         if (!debugConfig.showDialogs) yield break;
 
-        yield return ShowMessage(popupPrefab, popupDuration, text);
+        yield return ShowMessage(null, popupDuration, text);
     }
 
-    public IEnumerator ShowDialogue(string text)
+    public IEnumerator ShowDialogue(DialogueData dialogue)
     {
         if (!debugConfig.showDialogs) yield break;
 
-        yield return ShowMessage(dialoguePrefab, dialogueDuration, text);
+        yield return ShowMessage(dialogue.Background, dialogue.Duration, dialogue.Text);
     }
 
     public void ShowInteractableText(bool show)
@@ -126,24 +126,24 @@ public class UIManager : MonoBehaviour
     }
 
     // To test: right click on the UIManager in the Inspector and select "Test Popup". Use while in play mode to work as expected.
-    [ContextMenu("Test Popup")]
-    private void TestPopup()
-    {
-        Debug.Log("Testing Popup");
+    // [ContextMenu("Test Popup")]
+    // private void TestPopup()
+    // {
+    //     Debug.Log("Testing Popup");
 
-        StopAllCoroutines();
-        string text = "This is a test popup message";
-        StartCoroutine(ShowPopup(text));
-    }
+    //     StopAllCoroutines();
+    //     string text = "This is a test popup message";
+    //     StartCoroutine(ShowPopup(text));
+    // }
 
-    // To test: right click on the UIManager in the Inspector and select "Test Dialogue". Use while in play mode to work as expected.
-    [ContextMenu("Test Dialogue")]
-    private void TestDialogue()
-    {
-        Debug.Log("Testing Dialogue");
+    // // To test: right click on the UIManager in the Inspector and select "Test Dialogue". Use while in play mode to work as expected.
+    // [ContextMenu("Test Dialogue")]
+    // private void TestDialogue()
+    // {
+    //     Debug.Log("Testing Dialogue");
 
-        StopAllCoroutines();
-        string text = "This is a test dialogue message";
-        StartCoroutine(ShowDialogue(text));
-    }
+    //     StopAllCoroutines();
+    //     string text = "This is a test dialogue message";
+    //     StartCoroutine(ShowDialogue(text));
+    // }
 }
