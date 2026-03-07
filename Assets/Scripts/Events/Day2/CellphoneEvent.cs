@@ -17,8 +17,8 @@ public class CellphoneEvent : DayEvent
     {
         yield return new WaitUntil(() => _playerInteracted);
 
-        yield return UIManager.Instance.ShowDialogue("Is it broken?");
-        yield return UIManager.Instance.ShowDialogue("How...? When...?");
+        // yield return UIManager.Instance.ShowDialogue("Is it broken?");
+        // yield return UIManager.Instance.ShowDialogue("How...? When...?");
 
         landlineEvent.OnStartLandlineRing();
         yield break;

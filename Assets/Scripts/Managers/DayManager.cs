@@ -86,13 +86,13 @@ public class DayManager : MonoBehaviour
         DayEvent[] events = GetEventsForDay(day);
         foreach (DayEvent e in events)
         {
-            if (e is ShowerEvent showerEvent)
-            {
-                var shower = FindFirstObjectByType<InteractableShower>();
-                showerEvent.Initialize(shower);
-            }
+            // if (e is ShowerEvent showerEvent)
+            // {
+            //     var shower = FindFirstObjectByType<InteractableShower>();
+            //     showerEvent.Initialize(shower);
+            // }
 
-            yield return StartCoroutine(e.Execute());
+            // yield return StartCoroutine(e.Execute());
         }
 
         yield return StartCoroutine(FadeManager.Instance.FadeIn());
