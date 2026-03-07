@@ -13,10 +13,8 @@ public class InteractableShower : MonoBehaviour, IInteractable
         set => isActive = value;
     }
 
-    public event Action OnInteracted;
-
     public void Interact(GameObject gameObject)
     {
-        OnInteracted?.Invoke();
+        GameEvents.RaiseOnShowerTaken();
     }
 }
