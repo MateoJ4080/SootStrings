@@ -10,11 +10,25 @@ public class InteractableShower : MonoBehaviour, IInteractable
     public bool IsActive
     {
         get => isActive;
-        set => isActive = value;
+    }
+
+    void Start()
+    {
+        Activate();
     }
 
     public void Interact(GameObject gameObject)
     {
         GameEvents.RaiseOnShowerTaken();
+    }
+
+    public void Activate()
+    {
+        isActive = true;
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
     }
 }

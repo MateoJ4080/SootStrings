@@ -21,6 +21,6 @@ public class WakeUpEvent : DayEvent
         // yield return UIManager.Instance.ShowDialogue("What the hell did I do last night?");
 
         yield return _waitForSeconds2;
-        shower.IsActive = true;
+        shower.Activate();
     }
 }

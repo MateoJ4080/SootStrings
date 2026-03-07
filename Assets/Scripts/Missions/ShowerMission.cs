@@ -6,11 +6,10 @@ public class ShowerMission : MissionInstance
     [SerializeField] private DialogueData[] _dialogues;
     [SerializeField] private AudioClip _showerSound;
 
-    void Start()
+
+    void OnEnable()
     {
-        // Debug
-        StartCoroutine(Execute());
-        GameEvents.RaiseOnShowerTaken();
+        GameEvents.OnShowerTaken += OnShowerTaken;
     }
 
     public override void OnShowerTaken()

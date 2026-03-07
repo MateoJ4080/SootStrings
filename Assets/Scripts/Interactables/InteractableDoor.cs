@@ -13,12 +13,7 @@ public class InteractableDoor : MonoBehaviour, IInteractable
     public float InteractionRange => interactionRange;
 
     private bool isActive;
-    public bool IsActive
-    {
-        get => isActive;
-        set => isActive = value;
-    }
-
+    public bool IsActive { get => isActive; }
 
     public void Interact(GameObject gameObject)
     {
@@ -30,6 +25,16 @@ public class InteractableDoor : MonoBehaviour, IInteractable
         // Target value for the Blend Tree: 1 = fully open, 0 = fully closed
         float target = _isOpen ? 1f : 0f;
         _doorRoutine = StartCoroutine(AnimateDoor(target));
+    }
+
+    public void Activate()
+    {
+        isActive = true;
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
     }
 
     // Using coroutine to avoid doing it on the Update

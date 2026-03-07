@@ -19,4 +19,15 @@ public class InteractableBed : MonoBehaviour, IInteractable
     {
         OnInteracted?.Invoke();
     }
+
+    public void Activate()
+    {
+        isActive = true;
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
+    }
+
 }

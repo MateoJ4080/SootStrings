@@ -7,11 +7,7 @@ public class InteractableCellphone : MonoBehaviour, IInteractable
     public float InteractionRange => interactionRange;
 
     private bool isActive;
-    public bool IsActive
-    {
-        get => isActive;
-        set => isActive = value;
-    }
+    public bool IsActive { get => isActive; }
 
     public event Action OnInteracted;
 
@@ -19,4 +15,15 @@ public class InteractableCellphone : MonoBehaviour, IInteractable
     {
         OnInteracted?.Invoke();
     }
+
+    public void Activate()
+    {
+        isActive = true;
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
+    }
+
 }

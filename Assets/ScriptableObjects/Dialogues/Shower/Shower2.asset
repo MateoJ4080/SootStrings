@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93343f5bd6bf64647847b4b658a41e2b, type: 3}
   m_Name: Shower2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  text: I'll just go to sleep from now.
+  text: I'll just go to sleep for now.
   background: {fileID: 0}
   duration: 1

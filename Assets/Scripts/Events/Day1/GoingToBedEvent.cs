@@ -20,7 +20,7 @@ public class GoingToBedEvent : DayEvent
 
         yield return FadeManager.Instance.FadeIn();
         yield return FadeManager.Instance.FadeOut();
-        cellphone.IsActive = true;
+        cellphone.Activate();
         yield break;
     }
 }

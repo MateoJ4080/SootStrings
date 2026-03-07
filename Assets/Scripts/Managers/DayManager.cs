@@ -63,7 +63,7 @@ public class DayManager : MonoBehaviour
 
             foreach (IInteractable interactable in interactables)
             {
-                interactable.IsActive = true;
+                interactable.Activate();
             }
 
             foreach (DayEvent dayEvent in dayEvents)

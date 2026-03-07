@@ -7,17 +7,23 @@ public class InteractableLandlinePhone : MonoBehaviour, IInteractable
     public float InteractionRange => interactionRange;
 
     private bool isActive;
-    public bool IsActive
-    {
-        get => isActive;
-        set => isActive = value;
-    }
+    public bool IsActive { get => isActive; }
 
     [SerializeField] private AudioSource ringAudio;
 
     public void Interact(GameObject gameObject)
     {
         StopRing();
+    }
+
+    public void Activate()
+    {
+        isActive = true;
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
     }
 
     public IEnumerator Ring()

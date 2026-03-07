@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShowerMission
   _dialogues:
   - {fileID: 11400000, guid: 3639c322c4dce14449c74596716ae0e5, type: 2}
-  - {fileID: 11400000, guid: 3639c322c4dce14449c74596716ae0e5, type: 2}
+  - {fileID: 11400000, guid: 72bc37d39afed4444b4c252ada07dfbf, type: 2}
   _showerSound: {fileID: 8300000, guid: 3135158b7da46d6448c8b798277121f3, type: 3}
 --- !u!1001 &399274984
 PrefabInstance:

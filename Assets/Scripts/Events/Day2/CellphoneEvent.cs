@@ -10,7 +10,7 @@ public class CellphoneEvent : DayEvent
     void Awake()
     {
         cellphone.OnInteracted += () => _playerInteracted = true;
-        cellphone.OnInteracted += () => cellphone.IsActive = false;
+        cellphone.OnInteracted += () => cellphone.Activate();
     }
 
     public override IEnumerator Execute()

@@ -25,4 +25,14 @@ public class DummyInteractable : MonoBehaviour, IInteractable
     public bool IsActive { get; set; } = false;
     public float InteractionRange { get; set; } = 1f;
     public void Interact(GameObject interactor) { }
+
+    public void Activate()
+    {
+        IsActive = true;
+    }
+
+    public void Deactivate()
+    {
+        IsActive = false;
+    }
 }
