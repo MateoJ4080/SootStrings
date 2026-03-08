@@ -79,9 +79,14 @@ public class UIManager : MonoBehaviour
         yield return ShowMessage(dialogue.Background, dialogue.Duration, dialogue.Text);
     }
 
-    public void ShowInteractableText(bool show)
+    public void ShowInteractableText()
     {
-        interactText.gameObject.SetActive(show);
+        interactText.gameObject.SetActive(true);
+    }
+
+    public void HideInteractableText()
+    {
+        interactText.gameObject.SetActive(false);
     }
 
     public void ShowObjectiveText(string text)

@@ -12,15 +12,14 @@ public class PlayerInteractor : MonoBehaviour
 
     void Update()
     {
-        CheckForInteractable();
+        LookForInteractable();
 
         Debug.DrawRay(_camTransform.position, _camTransform.forward * interactDistance, Color.red);
-
     }
 
-    void CheckForInteractable()
+    void LookForInteractable()
     {
-        UIManager.Instance.ShowInteractableText(false);
+        UIManager.Instance.HideInteractableText();
 
         Ray ray = new(_camTransform.position, _camTransform.forward);
         currentInteractable = null;
@@ -39,9 +38,8 @@ public class PlayerInteractor : MonoBehaviour
         if (distanceToPlayer > interactable.InteractionRange)
             return;
 
-
         currentInteractable = interactable;
-        UIManager.Instance.ShowInteractableText(interactable.IsActive);
+        if (interactable.IsActive) UIManager.Instance.ShowInteractableText();
     }
 
     public void OnInteract(InputAction.CallbackContext callbackContext)

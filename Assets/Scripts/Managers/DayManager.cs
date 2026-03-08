@@ -133,7 +133,7 @@ public class DayManager : MonoBehaviour
         playerController.enabled = active;
         playerController.GravityEnabled = active;
         playerInteractor.enabled = active;
-        UIManager.Instance.ShowInteractableText(false);
+        UIManager.Instance.HideInteractableText();
     }
 
     // ====== TESTING ======
