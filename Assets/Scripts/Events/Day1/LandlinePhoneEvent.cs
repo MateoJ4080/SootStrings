@@ -20,7 +20,7 @@ public class LandlinePhoneEvent : DayEvent
         yield return new WaitUntil(() => fainted);
         DayManager.Instance.SetPlayerActive(false);
         yield return FadeManager.Instance.FadeIn();
-        yield return AudioManager.Instance.PlaySFX(fiantSound);
+        yield return AudioManager.Instance.PlaySFXCoroutine(fiantSound);
     }
 
     private IEnumerator RingLandline()

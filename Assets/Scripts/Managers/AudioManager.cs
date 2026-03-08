@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public IEnumerator PlayMusic(AudioClip clip, float volume = 1f)
+    public IEnumerator PlayMusicCoroutine(AudioClip clip, float volume = 1f)
     {
         musicSource.clip = clip;
         musicSource.volume = volume * 0.1f;
@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
         yield break;
     }
 
-    public IEnumerator PlaySFX(AudioClip clip, float volume = 1f)
+    public IEnumerator PlaySFXCoroutine(AudioClip clip, float volume = 1f)
     {
         sfxSource.PlayOneShot(clip, volume * 0.1f);
         yield break;
