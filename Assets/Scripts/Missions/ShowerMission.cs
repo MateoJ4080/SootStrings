@@ -22,7 +22,7 @@ public class ShowerMission : MissionInstance
         DayManager.Instance.SetPlayerActive(false);
 
         yield return FadeManager.Instance.FadeIn();
-        AudioManager.Instance.PlaySFXCoroutine(_showerSound);
+        StartCoroutine(AudioManager.Instance.PlaySFXCoroutine(_showerSound));
         yield return new WaitForSeconds(_showerSound.length);
         yield return FadeManager.Instance.FadeOut();
 
