@@ -14,6 +14,17 @@ public class AudioManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.clip = clip;
+        musicSource.Play();
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        sfxSource.PlayOneShot(clip);
+    }
+
     public IEnumerator PlayMusicCoroutine(AudioClip clip, float volume = 1f)
     {
         musicSource.clip = clip;
