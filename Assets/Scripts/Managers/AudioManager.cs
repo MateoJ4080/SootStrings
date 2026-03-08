@@ -17,14 +17,14 @@ public class AudioManager : MonoBehaviour
     public IEnumerator PlayMusic(AudioClip clip, float volume = 1f)
     {
         musicSource.clip = clip;
-        musicSource.volume = volume;
+        musicSource.volume = volume * 0.1f;
         musicSource.Play();
         yield break;
     }
 
     public IEnumerator PlaySFX(AudioClip clip, float volume = 1f)
     {
-        sfxSource.PlayOneShot(clip, volume);
+        sfxSource.PlayOneShot(clip, volume * 0.1f);
         yield break;
     }
 }

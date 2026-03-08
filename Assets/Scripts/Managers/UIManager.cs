@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text interactText;
 
     [Header("Audio")]
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip popupSound;
     [SerializeField] private AudioClip letterSound;
 
@@ -59,7 +58,7 @@ public class UIManager : MonoBehaviour
         }
 
         yield return StartCoroutine(Fade(canvasGroup, 0f, 1f, fadeDuration));
-        yield return StartCoroutine(WriteTextUI(message, tmp, audioSource, letterSound));
+        yield return StartCoroutine(WriteTextUI(message, tmp, letterSound));
         yield return new WaitForSeconds(duration);
         yield return StartCoroutine(Fade(canvasGroup, 1f, 0f, fadeDuration));
         Destroy(instance);
@@ -102,15 +101,15 @@ public class UIManager : MonoBehaviour
         objectiveText.gameObject.SetActive(false);
     }
 
-    private IEnumerator WriteTextUI(string text, TMP_Text label, AudioSource audioSource, AudioClip sound)
+    private IEnumerator WriteTextUI(string text, TMP_Text label, AudioClip sound)
     {
         label.text = "";
         foreach (char c in text)
         {
             label.text += c;
 
-            if (audioSource != null && sound != null)
-                audioSource.PlayOneShot(sound);
+            if (AudioManager.Instance != null && sound != null)
+                AudioManager.Instance.PlaySFX(sound);
 
             float waitTime = (c == ' ') ? wordInterval : letterInterval;
             yield return new WaitForSeconds(waitTime);
