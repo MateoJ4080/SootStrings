@@ -109,7 +109,7 @@ public class UIManager : MonoBehaviour
             label.text += c;
 
             if (AudioManager.Instance != null && sound != null)
-                AudioManager.Instance.PlaySFXCoroutine(sound);
+                AudioManager.Instance.PlaySFX(sound);
 
             float waitTime = (c == ' ') ? wordInterval : letterInterval;
             yield return new WaitForSeconds(waitTime);
