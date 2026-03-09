@@ -3,21 +3,15 @@ using UnityEngine;
 
 public class InteractableBed : MonoBehaviour, IInteractable
 {
-    [SerializeField] private float interactionRange = 2f;
-    public float InteractionRange => interactionRange;
+    [SerializeField] private readonly float _interactionRange = 2f;
+    public float InteractionRange => _interactionRange;
 
     private bool isActive;
-    public bool IsActive
-    {
-        get => isActive;
-        set => isActive = value;
-    }
-
-    public event Action OnInteracted;
+    public bool IsActive { get => isActive; }
 
     public void Interact(GameObject gameObject)
     {
-        OnInteracted?.Invoke();
+        GameEvents.RaiseOnSlept();
     }
 
     public void Activate()
@@ -29,5 +23,4 @@ public class InteractableBed : MonoBehaviour, IInteractable
     {
         isActive = false;
     }
-
 }
