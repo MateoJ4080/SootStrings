@@ -23,4 +23,9 @@ public class GameEvents
     {
         OnSlept?.Invoke();
     }
+
+    public static void RaiseOnPhoneTaken()
+    {
+        OnPhoneTaken?.Invoke();
+    }
 }

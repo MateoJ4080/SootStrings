@@ -36,7 +36,10 @@ public class PlayerInteractor : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(_camTransform.position, hit.point);
 
         if (distanceToPlayer > interactable.InteractionRange)
+        {
+            Debug.Log("There's an interactable but the player can't reach it. Try increasing 'InteractionRange' value.");
             return;
+        }
 
         currentInteractable = interactable;
         if (interactable.IsActive) UIManager.Instance.ShowInteractableText();
