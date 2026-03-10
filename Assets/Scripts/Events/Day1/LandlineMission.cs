@@ -1,19 +1,33 @@
 using System.Collections;
 using UnityEngine;
 
-public class LandlinePhoneEvent : DayEvent
+public class LandlineMission : MissionInstance
 {
-    [SerializeField] private InteractableLandlinePhone landlinePhone;
-    [SerializeField] private GameObject player;
+    [SerializeField] private DialogueData[] _dialogues;
+    [SerializeField] private InteractableLandline landlineInteractable;
     [SerializeField] private GameObject faintTrigger;
     [SerializeField] private AudioClip fiantSound;
 
-    private bool effectsStarted = false;
     private bool fainted = false;
 
-    public override IEnumerator Execute()
+    void OnEnable()
     {
-        yield return new WaitUntil(() => effectsStarted);
+        GameEvents.OnBrokenCellphoneTaken += OnBrokenCellphoneTaken;
+    }
+
+    void OnDisable()
+    {
+        GameEvents.OnBrokenCellphoneTaken -= OnBrokenCellphoneTaken;
+    }
+
+    void OnBrokenCellphoneTaken()
+    {
+        StartCoroutine(Execute());
+    }
+
+    public IEnumerator Execute()
+    {
+        yield return StartCoroutine(DialogueManager.Instance.PlaySequence(_dialogues));
 
         StartCoroutine(RingLandline());
 
@@ -28,11 +42,10 @@ public class LandlinePhoneEvent : DayEvent
         // Vector3 direction = faintTriggerZone.transform.position - player.transform.position;
         // float distance = direction.magnitude;
 
-        yield return landlinePhone.Ring();
+        landlineInteractable.Ring();
         faintTrigger.SetActive(true);
         yield return FadeManager.Instance.FadeTo(0.5f, 3f);
     }
 
-    public void OnStartLandlineRing() => effectsStarted = true;
     public void OnFaintTrigger() => fainted = true;
 }

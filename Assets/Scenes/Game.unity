@@ -1024,42 +1024,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 70de6d9782182114896215b3fa0b529c, type: 3}
   m_PrefabInstance: {fileID: 287350547}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &290801718
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 290801719}
-  m_Layer: 0
-  m_Name: Events
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &290801719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290801718}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1615593423}
-  - {fileID: 788031936}
-  - {fileID: 1487690185}
-  - {fileID: 1518552321}
-  - {fileID: 353407800}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,8 +1185,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.030641282, y: 0.03952844, z: 0.009848983}
-  m_Center: {x: -1.1969009e-22, y: 0.0000000018959125, z: 0.0077893366}
+  m_Size: {x: 0.030641282, y: 0.032301832, z: 0.0059362813}
+  m_Center: {x: 5.5996164e-17, y: -0.0036133078, z: 0.005832986}
 --- !u!114 &335973600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1235,38 +1199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72195ddf9277d3479971253083dca1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 1
---- !u!1 &353407799
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 353407800}
-  m_Layer: 0
-  m_Name: Day5Events
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &353407800
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353407799}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 290801719}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &362953432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a826478b2c3b602429d44548f1374d23, type: 3}
@@ -1388,7 +1320,6 @@ Transform:
   - {fileID: 235289355}
   - {fileID: 784771451}
   - {fileID: 1242556778}
-  - {fileID: 1967966468}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &399274984
@@ -2116,8 +2047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943d1fd06aa3c824ab3642df0c9bbbe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landlinePhoneEvent: {fileID: 788031938}
-  isFaintTrigger: 1
 --- !u!65 &445664721
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2851,7 +2780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2033876cc04f343bef845f6dae829c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 2
 --- !u!1 &719151707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33df8e3f6557b6d4f90cfa31c1a3f284, type: 3}
@@ -2870,7 +2798,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: ba3041e51ad46ca4d9967e9b861ecbb1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.132
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2966,7 +2894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc0b87c3ca67b94482d1e79221bd74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 0
   ringAudio: {fileID: 719151708}
 --- !u!4 &736195791 stripped
 Transform:
@@ -3125,71 +3052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd77e437e902ad49a43a17e6f221016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SleepMission
-  bed: {fileID: 335973600}
-  cellphone: {fileID: 717695094}
---- !u!1 &788031935
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 788031936}
-  - component: {fileID: 788031937}
-  - component: {fileID: 788031938}
-  m_Layer: 0
-  m_Name: Day2Events
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &788031936
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788031935}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 290801719}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &788031937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788031935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b45cd86aef9fb47bf9f58e7c1062ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellphone: {fileID: 717695094}
-  landlineEvent: {fileID: 788031938}
---- !u!114 &788031938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788031935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e130e2aed075244811a8f0bf6eaad4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  landlinePhone: {fileID: 719151713}
-  player: {fileID: 1892384225}
-  faintTrigger: {fileID: 445664719}
-  fiantSound: {fileID: 8300000, guid: 14cde32970d507748bf0cb162b352147, type: 3}
+  interactableBed: {fileID: 335973600}
+  interactableCellphone: {fileID: 717695094}
 --- !u!1 &813212397
 GameObject:
   m_ObjectHideFlags: 0
@@ -4624,8 +4488,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1242556778}
+  - component: {fileID: 1242556779}
   m_Layer: 0
-  m_Name: CellphoneMission
+  m_Name: LandlineMission
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4646,6 +4511,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 376946825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1242556779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242556777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e130e2aed075244811a8f0bf6eaad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LandlineMission
+  _dialogues:
+  - {fileID: 11400000, guid: 50c6996ed1c5d994c97dec121f23a26f, type: 2}
+  - {fileID: 11400000, guid: 3b4b7f4750645c941addde6922d62110, type: 2}
+  landlineInteractable: {fileID: 719151713}
+  faintTrigger: {fileID: 445664719}
+  fiantSound: {fileID: 8300000, guid: 14cde32970d507748bf0cb162b352147, type: 3}
 --- !u!1001 &1259862962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5197,37 +5080,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1487690184
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1487690185}
-  m_Layer: 0
-  m_Name: Day3Events
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1487690185
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487690184}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 290801719}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1511235292
 GameObject:
   m_ObjectHideFlags: 0
@@ -5365,37 +5217,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511235292}
   m_CullTransparentMesh: 1
---- !u!1 &1518552320
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1518552321}
-  m_Layer: 0
-  m_Name: Day4Events
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1518552321
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518552320}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 290801719}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1520126846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5574,8 +5395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943d1fd06aa3c824ab3642df0c9bbbe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landlinePhoneEvent: {fileID: 788031938}
-  isFaintTrigger: 0
 --- !u!65 &1580482741
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5736,68 +5555,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7b13e0ba85135944092f199bdf60200d, type: 3}
   m_PrefabInstance: {fileID: 1610506540}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1615593422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1615593423}
-  - component: {fileID: 1615593425}
-  - component: {fileID: 1615593426}
-  m_Layer: 0
-  m_Name: Day1Events
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1615593423
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615593422}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 290801719}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1615593425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615593422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1fd412eff45bf41ba0e2b268051641, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCinematics: {fileID: 1892384236}
-  shower: {fileID: 605121117}
-  debugConfig: {fileID: 11400000, guid: 9cdb76da8722f4b47bf82826f597d253, type: 2}
---- !u!114 &1615593426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615593422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cd77e437e902ad49a43a17e6f221016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bed: {fileID: 335973600}
-  cellphone: {fileID: 717695094}
 --- !u!1001 &1644243390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7828,37 +7585,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.8451, y: 3.2784684, z: 0.000000037252956}
   m_Center: {x: 3.1967027, y: -8.357723, z: -0.000000018626492}
---- !u!1 &1967966467
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1967966468}
-  m_Layer: 0
-  m_Name: ShowerMission (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1967966468
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967966467}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 376946825}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2004514857 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a13a71ee000be9941b7c60646521a14a, type: 3}
@@ -8083,11 +7809,11 @@ MonoBehaviour:
   playerController: {fileID: 1892384226}
   playerInteractor: {fileID: 1892384234}
   canvasGroup: {fileID: 896013413}
-  day1Events: {fileID: 1615593422}
-  day2Events: {fileID: 788031935}
-  day3Events: {fileID: 1487690184}
-  day4Events: {fileID: 1518552320}
-  day5Events: {fileID: 353407799}
+  day1Events: {fileID: 0}
+  day2Events: {fileID: 0}
+  day3Events: {fileID: 0}
+  day4Events: {fileID: 0}
+  day5Events: {fileID: 0}
 --- !u!4 &2024514465
 Transform:
   m_ObjectHideFlags: 0
@@ -8665,7 +8391,6 @@ SceneRoots:
   - {fileID: 923277040}
   - {fileID: 878529378}
   - {fileID: 376946825}
-  - {fileID: 290801719}
   - {fileID: 1090392626}
   - {fileID: 2138005204}
   - {fileID: 1580482742}

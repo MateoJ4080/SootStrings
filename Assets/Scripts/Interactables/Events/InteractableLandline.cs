@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class InteractableLandlinePhone : MonoBehaviour, IInteractable
+public class InteractableLandline : MonoBehaviour, IInteractable
 {
-    [SerializeField] private float interactionRange = 2f;
-    public float InteractionRange => interactionRange;
+    [SerializeField] private readonly float _interactionRange = 2f;
+    public float InteractionRange => _interactionRange;
 
     private bool isActive;
     public bool IsActive { get => isActive; }
@@ -26,7 +26,7 @@ public class InteractableLandlinePhone : MonoBehaviour, IInteractable
         isActive = false;
     }
 
-    public IEnumerator Ring()
+    public void Ring()
     {
         if (!ringAudio.isPlaying)
         {
@@ -34,7 +34,6 @@ public class InteractableLandlinePhone : MonoBehaviour, IInteractable
             ringAudio.loop = true;
             ringAudio.Play();
         }
-        yield break;
     }
 
     public void StopRing()

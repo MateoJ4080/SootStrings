@@ -1,19 +1,16 @@
-using System;
 using UnityEngine;
 
 public class InteractableCellphone : MonoBehaviour, IInteractable
 {
-    [SerializeField] private float interactionRange = 2f;
-    public float InteractionRange => interactionRange;
+    [SerializeField] private readonly float _interactionRange = 2f;
+    public float InteractionRange => _interactionRange;
 
     private bool isActive;
     public bool IsActive { get => isActive; }
 
-    public event Action OnInteracted;
-
     public void Interact(GameObject gameObject)
     {
-        OnInteracted?.Invoke();
+        GameEvents.RaiseOnBrokenCellphoneTaken();
     }
 
     public void Activate()
@@ -25,5 +22,4 @@ public class InteractableCellphone : MonoBehaviour, IInteractable
     {
         isActive = false;
     }
-
 }

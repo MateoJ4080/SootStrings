@@ -7,7 +7,7 @@ public class GameEvents
 
     public static event Action OnShowerTaken;
     public static event Action OnSlept;
-    public static event Action OnPhoneTaken;
+    public static event Action OnBrokenCellphoneTaken;
 
     public static void RaiseMissionCompleted(MissionInstance mission)
     {
@@ -24,8 +24,8 @@ public class GameEvents
         OnSlept?.Invoke();
     }
 
-    public static void RaiseOnPhoneTaken()
+    public static void RaiseOnBrokenCellphoneTaken()
     {
-        OnPhoneTaken?.Invoke();
+        OnBrokenCellphoneTaken?.Invoke();
     }
 }

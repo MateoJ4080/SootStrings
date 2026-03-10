@@ -18,12 +18,6 @@ public class ShowerMission : MissionInstance
         GameEvents.OnShowerTaken -= OnShowerTaken;
     }
 
-    // Debug 
-    void Start()
-    {
-        GameEvents.RaiseOnShowerTaken();
-    }
-
     public override void OnShowerTaken()
     {
         StartCoroutine(Execute());
