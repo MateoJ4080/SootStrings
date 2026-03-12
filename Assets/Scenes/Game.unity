@@ -7053,7 +7053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 330585545}
-  mouseSensitivity: 5.9
+  mouseSensitivity: 10.2
 --- !u!114 &1892384234
 MonoBehaviour:
   m_ObjectHideFlags: 0
