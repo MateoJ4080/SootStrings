@@ -46,11 +46,9 @@ public class PlayerInteractor : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext callbackContext)
     {
-        Debug.Log("Trying OnInteract");
         //Debug.Log($"currentInteractable is{(currentInteractable == null ? "" : "n't")} null");
         if (callbackContext.performed && currentInteractable != null && currentInteractable.IsActive)
         {
-            Debug.Log("OnInteract");
             currentInteractable.Interact(gameObject);
         }
     }
