@@ -38,11 +38,6 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    void Start()
-    {
-        interactText.ForceMeshUpdate(true, true);
-    }
-
     public IEnumerator ShowMessage(Sprite background, float duration, string message)
     {
         if (dialoguePrefab == null)
