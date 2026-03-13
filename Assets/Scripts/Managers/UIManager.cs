@@ -80,12 +80,14 @@ public class UIManager : MonoBehaviour
 
     public void ShowInteractableText()
     {
-        interactText.gameObject.SetActive(true);
+        if (!interactText.gameObject.activeSelf)
+            interactText.gameObject.SetActive(true);
     }
 
     public void HideInteractableText()
     {
-        interactText.gameObject.SetActive(false);
+        if (interactText.gameObject.activeSelf)
+            interactText.gameObject.SetActive(false);
     }
 
     public void ShowObjectiveText(string text)

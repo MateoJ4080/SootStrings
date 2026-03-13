@@ -14,7 +14,7 @@ public class PlayerInteractor : MonoBehaviour
     {
         LookForInteractable();
 
-        Debug.DrawRay(_camTransform.position, _camTransform.forward * interactDistance, Color.red);
+        // Debug.DrawRay(_camTransform.position, _camTransform.forward * interactDistance, Color.red);
     }
 
     void LookForInteractable()
@@ -37,7 +37,6 @@ public class PlayerInteractor : MonoBehaviour
 
         if (distanceToPlayer > interactable.InteractionRange)
         {
-            Debug.Log("There's an interactable but the player can't reach it. Try increasing 'InteractionRange' value.");
             return;
         }
 
@@ -57,11 +56,11 @@ public class PlayerInteractor : MonoBehaviour
     }
 
     // Show gizmos in the editor
-    void OnDrawGizmosSelected()
-    {
-        if (_camTransform == null) return;
+    // void OnDrawGizmosSelected()
+    // {
+    //     if (_camTransform == null) return;
 
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(_camTransform.position, _camTransform.position + _camTransform.forward * interactDistance);
-    }
+    //     Gizmos.color = Color.green;
+    //     Gizmos.DrawLine(_camTransform.position, _camTransform.position + _camTransform.forward * interactDistance);
+    // }
 }
