@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 currentMoveVelocity;
     private Vector3 moveVelocityDamp;
     private bool isGrounded;
+    private float _speedMultiplier = 1;
 
     private void Awake()
     {
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
         // Combine horizontal movement and vertical velocity
         Vector3 finalVelocity = currentMoveVelocity + Vector3.up * velocity.y;
-        controller.Move(finalVelocity * Time.deltaTime);
+        controller.Move(_speedMultiplier * Time.deltaTime * finalVelocity);
 
         // Apply gravity
         if (GravityEnabled)
@@ -105,5 +106,10 @@ public class PlayerController : MonoBehaviour
         if (stepClips.Length == 0) return;
         AudioClip clip = stepClips[Random.Range(0, stepClips.Length)];
         audioSource.PlayOneShot(clip);
+    }
+
+    public void SetSpeedMultiplier(float multiplier)
+    {
+        _speedMultiplier = Mathf.Max(0f, multiplier);
     }
 }

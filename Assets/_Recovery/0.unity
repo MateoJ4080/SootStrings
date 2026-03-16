@@ -4695,8 +4695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LandlineMission
   _playerController: {fileID: 1892384226}
-  _interactableLandline: {fileID: 719151713}
-  _interactableCellphone: {fileID: 717695094}
+  _landlineInteractable: {fileID: 719151713}
   _faintTrigger: {fileID: 445664719}
   _dialogues:
   - {fileID: 11400000, guid: 50c6996ed1c5d994c97dec121f23a26f, type: 2}

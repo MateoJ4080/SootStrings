@@ -1,15 +1,11 @@
 using UnityEngine;
-
 public class PhoneTrigger : MonoBehaviour
 {
-    // [SerializeField] private LandlinePhoneEvent landlinePhoneEvent;
-    // [SerializeField] private bool isFaintTrigger = false;
+    [SerializeField] private LandlineMission _landlineMission;
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (!other.CompareTag("Player")) return;
-
-    //     if (isFaintTrigger)
-    //         landlinePhoneEvent.OnFaintTrigger();
-    // }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+        _landlineMission.OnFaintTrigger();
+    }
 }
