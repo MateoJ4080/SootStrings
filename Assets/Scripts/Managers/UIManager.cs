@@ -7,30 +7,30 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     [Header("Settings")]
-    [SerializeField] DebugConfig debugConfig;
+    [SerializeField] private DebugConfig _debugConfig;
 
     [Header("General")]
-    [SerializeField] private float letterInterval = 0.1f;
-    [SerializeField] private float wordInterval = 0.1f;
-    [SerializeField] private float fadeDuration = 0.5f;
+    [SerializeField] private float _letterInterval = 0.1f;
+    [SerializeField] private float _wordInterval = 0.1f;
+    [SerializeField] private float _fadeDuration = 0.5f;
 
     [Header("Interactable")]
-    [SerializeField] private TMP_Text interactText;
+    [SerializeField] private TMP_Text _interactText;
 
     [Header("Audio")]
-    [SerializeField] private AudioClip popupSound;
-    [SerializeField] private AudioClip letterSound;
+    [SerializeField] private AudioClip _popupSound;
+    [SerializeField] private AudioClip _letterSound;
 
     [Header("Popups")]
-    [SerializeField] private GameObject popupPrefab;
-    [SerializeField] private float popupDuration = 1.5f;
+    [SerializeField] private GameObject _popupPrefab;
+    [SerializeField] private float _popupDuration = 1.5f;
 
     [Header("Dialogues")]
-    [SerializeField] private GameObject dialoguePrefab;
-    [SerializeField] private float dialogueDuration = 1.5f; // Dialogue should be skippable instead of having a fixed duration. Change this later.
+    [SerializeField] private GameObject _dialoguePrefab;
+    // [SerializeField] private float dialogueDuration = 1.5f; // Dialogue should be skippable instead of having a fixed duration. Change this later.
 
     [Header("Objectives")]
-    [SerializeField] private TMP_Text objectiveText;
+    [SerializeField] private TMP_Text _objectiveText;
 
     private void Awake()
     {
@@ -40,13 +40,13 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator ShowMessage(Sprite background, float duration, string message)
     {
-        if (dialoguePrefab == null)
+        if (_dialoguePrefab == null)
         {
             Debug.LogError("UIManager: Prefab not assigned in the inspector.");
             yield break;
         }
 
-        GameObject instance = Instantiate(dialoguePrefab, transform);
+        GameObject instance = Instantiate(_dialoguePrefab, transform);
         CanvasGroup canvasGroup = instance.GetComponent<CanvasGroup>();
         TextMeshProUGUI tmp = instance.GetComponentInChildren<TextMeshProUGUI>();
 
@@ -57,50 +57,50 @@ public class UIManager : MonoBehaviour
             yield break;
         }
 
-        yield return StartCoroutine(Fade(canvasGroup, 0f, 1f, fadeDuration));
-        yield return StartCoroutine(WriteTextUI(message, tmp, letterSound));
+        yield return StartCoroutine(Fade(canvasGroup, 0f, 1f, _fadeDuration));
+        yield return StartCoroutine(WriteTextUI(message, tmp, _letterSound));
         yield return new WaitForSeconds(duration);
-        yield return StartCoroutine(Fade(canvasGroup, 1f, 0f, fadeDuration));
+        yield return StartCoroutine(Fade(canvasGroup, 1f, 0f, _fadeDuration));
         Destroy(instance);
     }
 
     public IEnumerator ShowPopup(string text)
     {
-        if (!debugConfig.showDialogs) yield break;
+        if (!_debugConfig.showDialogs) yield break;
 
-        yield return ShowMessage(null, popupDuration, text);
+        yield return ShowMessage(null, _popupDuration, text);
     }
 
     public IEnumerator ShowDialogue(DialogueData dialogue)
     {
-        if (!debugConfig.showDialogs) yield break;
+        if (!_debugConfig.showDialogs) yield break;
 
         yield return ShowMessage(dialogue.Background, dialogue.Duration, dialogue.Text);
     }
 
     public void ShowInteractableText()
     {
-        if (!interactText.gameObject.activeSelf)
-            interactText.gameObject.SetActive(true);
+        if (!_interactText.gameObject.activeSelf)
+            _interactText.gameObject.SetActive(true);
     }
 
     public void HideInteractableText()
     {
-        if (interactText.gameObject.activeSelf)
-            interactText.gameObject.SetActive(false);
+        if (_interactText.gameObject.activeSelf)
+            _interactText.gameObject.SetActive(false);
     }
 
     public void ShowObjectiveText(string text)
     {
-        objectiveText.text = text;
-        objectiveText.gameObject.SetActive(true);
+        _objectiveText.text = text;
+        _objectiveText.gameObject.SetActive(true);
     }
 
     public void HideObjectiveText()
     {
-        if (!debugConfig.showObjective) return;
+        if (!_debugConfig.showObjective) return;
 
-        objectiveText.gameObject.SetActive(false);
+        _objectiveText.gameObject.SetActive(false);
     }
 
     private IEnumerator WriteTextUI(string text, TMP_Text label, AudioClip sound)
@@ -113,7 +113,7 @@ public class UIManager : MonoBehaviour
             if (AudioManager.Instance != null && sound != null)
                 AudioManager.Instance.PlaySFX(sound);
 
-            float waitTime = (c == ' ') ? wordInterval : letterInterval;
+            float waitTime = (c == ' ') ? _wordInterval : _letterInterval;
             yield return new WaitForSeconds(waitTime);
         }
     }
