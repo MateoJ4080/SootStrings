@@ -55,6 +55,11 @@ public class FadeManager : MonoBehaviour
         canvasGroup.alpha = targetAlpha;
     }
 
+    public void SetFade(float value)
+    {
+        canvasGroup.alpha = value;
+    }
+
     // ====== TESTING ======
     [ContextMenu("Test FadeIn")]
     private void TestFadeIn()
