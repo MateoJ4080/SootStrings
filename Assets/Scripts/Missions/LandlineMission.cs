@@ -34,6 +34,7 @@ public class LandlineMission : MissionInstance
 
     public IEnumerator Execute()
     {
+        _interactableCellphone.Deactivate();
         yield return StartCoroutine(DialogueManager.Instance.PlaySequence(_dialogues));
 
         StartCoroutine(RingLandline());
