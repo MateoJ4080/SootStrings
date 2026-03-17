@@ -37,7 +37,7 @@ public class LandlineMission : MissionInstance
         _interactableCellphone.Deactivate();
         yield return StartCoroutine(DialogueManager.Instance.PlaySequence(_dialogues));
 
-        StartCoroutine(RingLandline());
+        RingLandline();
 
         while (!fainted)
         {
@@ -45,10 +45,17 @@ public class LandlineMission : MissionInstance
                 _playerController.transform.position,
                 _faintTrigger.transform.position);
 
+            // Slowdown
             float t = Mathf.InverseLerp(0f, startDistance, distance);
             float speed = Mathf.Lerp(0.1f, 1f, t);
-
             _playerController.SetSpeedMultiplier(speed);
+
+            // Fade view
+            if (t < 0.7f)
+            {
+                float fade = Mathf.InverseLerp(0.7f, 0, t);
+                FadeManager.Instance.SetFade(fade);
+            }
 
             yield return null;
         }
@@ -60,11 +67,10 @@ public class LandlineMission : MissionInstance
         _playerController.SetSpeedMultiplier(1f);
     }
 
-    private IEnumerator RingLandline()
+    private void RingLandline()
     {
         _interactableLandline.Ring();
         _faintTrigger.SetActive(true);
-        yield return FadeManager.Instance.FadeTo(0.5f, 3f);
     }
 
     public void OnFaintTrigger() => fainted = true;
