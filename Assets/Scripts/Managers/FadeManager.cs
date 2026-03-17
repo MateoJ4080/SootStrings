@@ -55,7 +55,7 @@ public class FadeManager : MonoBehaviour
         canvasGroup.alpha = targetAlpha;
     }
 
-    public void SetFade(float value)
+    public void SetAlpha(float value)
     {
         canvasGroup.alpha = value;
     }

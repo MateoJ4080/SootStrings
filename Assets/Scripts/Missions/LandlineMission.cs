@@ -54,7 +54,7 @@ public class LandlineMission : MissionInstance
             if (t < 0.7f)
             {
                 float fade = Mathf.InverseLerp(0.7f, 0, t);
-                FadeManager.Instance.SetFade(fade);
+                FadeManager.Instance.SetAlpha(fade);
             }
 
             yield return null;
