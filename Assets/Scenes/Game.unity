@@ -2343,6 +2343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38ee1d850e476a4fba8d4c3b6dc0f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+  _playerController: {fileID: 1892384226}
 --- !u!1001 &464749565
 PrefabInstance:
   m_ObjectHideFlags: 0
