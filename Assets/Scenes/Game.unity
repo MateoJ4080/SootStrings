@@ -551,18 +551,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7d927f93f3f1d4a83649725fc58477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugConfig: {fileID: 11400000, guid: 9cdb76da8722f4b47bf82826f597d253, type: 2}
-  letterInterval: 0.05
-  wordInterval: 0.05
-  fadeDuration: 0.5
-  interactText: {fileID: 1511235294}
-  popupSound: {fileID: 0}
-  letterSound: {fileID: 8300000, guid: 87f30af9b41b7e2498ea52f4ac6432a0, type: 3}
-  popupPrefab: {fileID: 151825356377410283, guid: 9efce1454b679424c9ca52af1f4612f3, type: 3}
-  popupDuration: 3
-  dialoguePrefab: {fileID: 8164023076732036853, guid: d03d96671c4b3e549abf5a69408891d6, type: 3}
-  dialogueDuration: 3
-  objectiveText: {fileID: 1739138303}
+  _debugConfig: {fileID: 11400000, guid: 9cdb76da8722f4b47bf82826f597d253, type: 2}
+  _letterInterval: 0.1
+  _wordInterval: 0.05
+  _fadeDuration: 0.05
+  _interactText: {fileID: 1511235294}
+  _popupSound: {fileID: 8300000, guid: f2599c74de9c7f840805e2c6ab2c1045, type: 3}
+  _letterSound: {fileID: 8300000, guid: 87f30af9b41b7e2498ea52f4ac6432a0, type: 3}
+  _popupPrefab: {fileID: 151825356377410283, guid: 9efce1454b679424c9ca52af1f4612f3, type: 3}
+  _popupDuration: 3
+  _dialoguePrefab: {fileID: 8164023076732036853, guid: d03d96671c4b3e549abf5a69408891d6, type: 3}
+  _objectiveText: {fileID: 1739138303}
 --- !u!114 &53056681
 MonoBehaviour:
   m_ObjectHideFlags: 0
