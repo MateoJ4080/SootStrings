@@ -20,6 +20,6 @@ public class DialogueManager : MonoBehaviour
         {
             yield return UIManager.Instance.ShowDialogue(dialogue);
         }
-        _playerController.enabled = false;
+        _playerController.enabled = true;
     }
 }
