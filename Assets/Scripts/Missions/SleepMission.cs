@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SleepMission : MissionInstance
 {
-    [SerializeField] private InteractableBed interactableBed;
-    [SerializeField] private InteractableCellphone interactableCellphone;
+    [SerializeField] private InteractableBed _interactableBed;
+    [SerializeField] private InteractableCellphone _interactableCellphone;
 
     void OnEnable()
     {
@@ -23,12 +23,10 @@ public class SleepMission : MissionInstance
 
     private IEnumerator Execute()
     {
-        Debug.Log("SleepMission Execute");
-
-        interactableBed.Deactivate();
+        _interactableBed.Deactivate();
         yield return FadeManager.Instance.FadeIn();
         yield return FadeManager.Instance.FadeOut();
-        interactableCellphone.Activate();
+        _interactableCellphone.Activate();
 
         yield break;
     }

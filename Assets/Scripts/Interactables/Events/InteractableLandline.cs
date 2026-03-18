@@ -13,7 +13,7 @@ public class InteractableLandline : MonoBehaviour, IInteractable
 
     public void Interact(GameObject gameObject)
     {
-        StopRing();
+        // StopRing();
     }
 
     public void Activate()

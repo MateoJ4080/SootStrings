@@ -552,9 +552,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _debugConfig: {fileID: 11400000, guid: 9cdb76da8722f4b47bf82826f597d253, type: 2}
-  _letterInterval: 0.1
+  _letterInterval: 0.05
   _wordInterval: 0.05
-  _fadeDuration: 0.05
+  _fadeDuration: 0.5
   _interactText: {fileID: 1511235294}
   _popupSound: {fileID: 8300000, guid: f2599c74de9c7f840805e2c6ab2c1045, type: 3}
   _letterSound: {fileID: 8300000, guid: 87f30af9b41b7e2498ea52f4ac6432a0, type: 3}
@@ -3192,8 +3192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd77e437e902ad49a43a17e6f221016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SleepMission
-  interactableBed: {fileID: 335973600}
-  interactableCellphone: {fileID: 717695094}
+  _interactableBed: {fileID: 335973600}
+  _interactableCellphone: {fileID: 717695094}
 --- !u!1 &800177815
 GameObject:
   m_ObjectHideFlags: 0
@@ -5729,6 +5729,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7b13e0ba85135944092f199bdf60200d, type: 3}
   m_PrefabInstance: {fileID: 1610506540}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1642174778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1642174779}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1642174779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642174778}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.4, y: 0.8, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2110413281}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1644243390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7983,11 +8014,6 @@ MonoBehaviour:
   playerController: {fileID: 1892384226}
   playerInteractor: {fileID: 1892384234}
   canvasGroup: {fileID: 896013413}
-  day1Events: {fileID: 0}
-  day2Events: {fileID: 0}
-  day3Events: {fileID: 0}
-  day4Events: {fileID: 0}
-  day5Events: {fileID: 0}
 --- !u!4 &2024514465
 Transform:
   m_ObjectHideFlags: 0
@@ -8271,6 +8297,7 @@ Transform:
   - {fileID: 865973001}
   - {fileID: 736195791}
   - {fileID: 1103187498}
+  - {fileID: 1642174779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2123689300
