@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a1c5eb0675b544db6e9a81142eba00, type: 3}
   m_Name: DebugConfig
   m_EditorClassIdentifier: 
+  debugModeEnabled: 0
   showDialogs: 1
-  autoStartDays: 0
+  showObjective: 1

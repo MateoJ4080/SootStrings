@@ -52,8 +52,8 @@ public class DayManager : MonoBehaviour
             StartCoroutine(RunDay(currentDay));
         }
 
-        // Debug: if not in autoStart mode, enable all interactables for testing.
-        if (!debugConfig.autoStartDays)
+        // Debug: if in debugMode mode, enable all interactables for testing.
+        if (debugConfig.debugModeEnabled)
         {
             playerController.gameObject.transform.position = new(-3f, 1.5f, -10f);
 
