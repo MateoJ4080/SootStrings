@@ -66,14 +66,14 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator ShowPopup(string text)
     {
-        if (!_debugConfig.showDialogs) yield break;
+        if (!_debugConfig.showDialogues) yield break;
 
         yield return ShowMessage(null, _popupDuration, text);
     }
 
     public IEnumerator ShowDialogue(DialogueData dialogue)
     {
-        if (!_debugConfig.showDialogs) yield break;
+        if (!_debugConfig.showDialogues) yield break;
 
         yield return ShowMessage(dialogue.Background, dialogue.Duration, dialogue.Text);
     }

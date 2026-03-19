@@ -4,6 +4,6 @@ using UnityEngine;
 public class DebugConfig : ScriptableObject
 {
     public bool debugModeEnabled = true;
-    public bool showDialogs = true;
+    public bool showDialogues = true;
     public bool showObjective = true;
 }
