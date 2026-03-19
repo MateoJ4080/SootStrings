@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class DayManager : MonoBehaviour
 {
@@ -40,8 +39,6 @@ public class DayManager : MonoBehaviour
         // Debug: if in debugMode mode, enable all interactables for testing.
         if (debugConfig.debugModeEnabled)
         {
-            playerController.gameObject.transform.position = new(-3f, 1.5f, -10f);
-
             var monos = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
             var interactables = monos.OfType<IInteractable>();
             var dayEvents = monos.OfType<DayEvent>();
