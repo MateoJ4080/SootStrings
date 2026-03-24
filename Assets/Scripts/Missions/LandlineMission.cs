@@ -67,7 +67,6 @@ public class LandlineMission : MissionInstance
             landlineSource.volume = t * 0.1f;
 
             Debug.Log(t);
-
             if (t == 0) fainted = true;
 
             yield return null;
