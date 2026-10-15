@@ -1,7 +1,7 @@
 ﻿<Solution>
   <Project Path="Unity.Timeline.csproj" />
-  <Project Path="glTFast.dots.csproj" />
   <Project Path="Unity.InputSystem.csproj" />
+  <Project Path="glTFast.dots.csproj" />
   <Project Path="Unity.Timeline.Editor.csproj" />
   <Project Path="Unity.Mathematics.csproj" />
   <Project Path="Unity.Collections.csproj" />
