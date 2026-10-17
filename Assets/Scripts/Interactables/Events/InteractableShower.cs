@@ -1,29 +1,30 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
-public class InteractableShower : MonoBehaviour, IInteractable
+public class InteractableShower : Interactable
 {
-    [SerializeField] private float interactionRange = 2f;
-    public float InteractionRange => interactionRange;
+    [SerializeField] private InteractableBed interactableBed;
 
-    private bool isActive;
-    public bool IsActive
+    [SerializeField] private DialogueData[] _dialogues;
+    [SerializeField] private AudioClip _showerSound;
+
+    public override void Interact(GameObject gameObject)
     {
-        get => isActive;
+        StartCoroutine(Execute());
     }
 
-    public void Interact(GameObject gameObject)
+    private IEnumerator Execute()
     {
-        GameEvents.RaiseOnShowerTaken();
-    }
+        DayManager.Instance.SetPlayerActive(false);
+        yield return FadeManager.Instance.FadeIn();
+        StartCoroutine(AudioManager.Instance.PlaySFXCoroutine(_showerSound));
+        yield return new WaitForSeconds(_showerSound.length);
+        yield return FadeManager.Instance.FadeOut();
+        DayManager.Instance.SetPlayerActive(true);
 
-    public void Activate()
-    {
-        isActive = true;
-    }
+        StartCoroutine(DialogueManager.Instance.PlaySequence(_dialogues));
 
-    public void Deactivate()
-    {
-        isActive = false;
+        interactableBed.Activate();
     }
 }
