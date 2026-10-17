@@ -250,8 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263660ab579cbf84bac913143514a081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInDuration: 1
-  fadeOutDuration: 1
+  _fadeInDuration: 1
+  _fadeOutDuration: 1
 --- !u!1 &18846613 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1756254645985288685, guid: a6f0dc71a14077d42aa68b33ed35dc89, type: 3}
@@ -1130,55 +1130,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5553214937434200367, guid: a6f0dc71a14077d42aa68b33ed35dc89, type: 3}
---- !u!1 &235289354
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 235289355}
-  - component: {fileID: 235289356}
-  m_Layer: 0
-  m_Name: ShowerMission
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &235289355
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235289354}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 376946825}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &235289356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235289354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b9d007864b07924dad697491b3ecb1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShowerMission
-  interactableBed: {fileID: 335973600}
-  _dialogues:
-  - {fileID: 11400000, guid: 3639c322c4dce14449c74596716ae0e5, type: 2}
-  - {fileID: 11400000, guid: 72bc37d39afed4444b4c252ada07dfbf, type: 2}
-  _showerSound: {fileID: 8300000, guid: 3135158b7da46d6448c8b798277121f3, type: 3}
 --- !u!1001 &287350547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1305,6 +1256,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1430,6 +1382,28 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!95 &330585548
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 332d7f61be536364fbea4594d5115b85, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &335973593 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 41ee376cdb134f249b8cc32f49bd3674, type: 3}
@@ -1468,6 +1442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72195ddf9277d3479971253083dca1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionRange: 2
+  _interactableCellphone: {fileID: 0}
 --- !u!1001 &362214878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1659,10 +1635,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 235289355}
-  - {fileID: 784771451}
-  - {fileID: 1242556778}
   - {fileID: 1799967568}
+  - {fileID: 1242556778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &398425898 stripped
@@ -3039,7 +3013,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77047e5ea7c0a86489f12de0d4a6642a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 1
+  _interactionRange: 2
+  interactableBed: {fileID: 0}
+  _dialogues: []
+  _showerSound: {fileID: 0}
 --- !u!65 &605121119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3477,6 +3454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2033876cc04f343bef845f6dae829c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactionRange: 2
 --- !u!4 &718059724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a54cbac1036a10445a91bdb1c6d52bfe, type: 3}
@@ -3711,52 +3689,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 73f1f880649d69e4fa1f86299068c852, type: 3}
   m_PrefabInstance: {fileID: 780211682}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &784771450
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 784771451}
-  - component: {fileID: 784771452}
-  m_Layer: 0
-  m_Name: SleepMission
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &784771451
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784771450}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 376946825}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &784771452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784771450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cd77e437e902ad49a43a17e6f221016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SleepMission
-  _interactableBed: {fileID: 335973600}
-  _interactableCellphone: {fileID: 717695094}
 --- !u!1 &787945368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4545,7 +4477,6 @@ Transform:
   - {fileID: 647684100}
   - {fileID: 18233867}
   - {fileID: 458780263}
-  - {fileID: 1703760207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &896013412
@@ -7395,53 +7326,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!1 &1703760206
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1703760207}
-  - component: {fileID: 1703760208}
-  m_Layer: 0
-  m_Name: MissionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1703760207
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703760206}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 878529378}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1703760208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703760206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc8da72ed929834784b99717459705d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MissionManager
-  activeMissions:
-  - {fileID: 235289356}
-  completedMissions: []
 --- !u!1001 &1705417059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8062,11 +7946,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1fd412eff45bf41ba0e2b268051641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntroWakeUpMission
-  player: {fileID: 854607426}
-  playerCinematics: {fileID: 1892384236}
-  shower: {fileID: 605121117}
-  debugConfig: {fileID: 11400000, guid: 9cdb76da8722f4b47bf82826f597d253, type: 2}
+  _player: {fileID: 1892384225}
+  _camController: {fileID: 1892384233}
+  _introAnimator: {fileID: 330585548}
+  _wakeUpClip: {fileID: 7400000, guid: f8e27e39c2aa00c4286de2b483c0dde4, type: 2}
   _dialogues: {fileID: 0}
+  shower: {fileID: 605121117}
 --- !u!1001 &1823135741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8471,7 +8356,6 @@ GameObject:
   - component: {fileID: 1892384233}
   - component: {fileID: 1892384234}
   - component: {fileID: 1892384235}
-  - component: {fileID: 1892384236}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8671,7 +8555,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.6
-  m_Radius: 0.29
+  m_Radius: 0.26
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -8743,7 +8627,7 @@ Transform:
   m_GameObject: {fileID: 1892384225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.078, y: -0.047, z: -2.538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8879,18 +8763,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1892384236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892384225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 543300cc7e36ef145a3939fa69bae250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1895364847
 PrefabInstance:
   m_ObjectHideFlags: 0
