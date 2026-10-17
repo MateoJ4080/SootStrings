@@ -1,26 +1,22 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
-public class InteractableBed : MonoBehaviour, IInteractable
+public class InteractableBed : Interactable
 {
-    [SerializeField] private readonly float _interactionRange = 2f;
-    public float InteractionRange => _interactionRange;
+    [SerializeField] private InteractableCellphone _interactableCellphone;
 
-    private bool isActive;
-    public bool IsActive { get => isActive; }
-
-    public void Interact(GameObject gameObject)
+    public override void Interact(GameObject gameObject)
     {
-        GameEvents.RaiseOnSlept();
+        StartCoroutine(Execute());
     }
 
-    public void Activate()
+    private IEnumerator Execute()
     {
-        isActive = true;
-    }
+        Deactivate();
 
-    public void Deactivate()
-    {
-        isActive = false;
+        yield return FadeManager.Instance.FadeIn();
+        yield return FadeManager.Instance.FadeOut();
+
+        _interactableCellphone.Activate();
     }
 }
