@@ -5,59 +5,59 @@ public class FadeManager : MonoBehaviour
 {
     public static FadeManager Instance { get; private set; }
 
-    private CanvasGroup canvasGroup;
-    public float fadeInDuration;
-    public float fadeOutDuration;
+    private CanvasGroup _canvasGroup;
+    [SerializeField] private float _fadeInDuration;
+    [SerializeField] private float _fadeOutDuration;
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        canvasGroup = FindFirstObjectByType<CanvasGroup>();
+        _canvasGroup = FindFirstObjectByType<CanvasGroup>();
     }
 
     private IEnumerator Fade(float start, float end, float duration)
     {
         float timer = 0f;
 
-        if (canvasGroup == null) yield break;
+        if (_canvasGroup == null) yield break;
 
-        canvasGroup.alpha = start;
+        _canvasGroup.alpha = start;
 
         while (timer < duration)
         {
             timer += Time.deltaTime;
             float t = timer / duration;
             float easedT = t * t;
-            canvasGroup.alpha = Mathf.Lerp(start, end, easedT);
+            _canvasGroup.alpha = Mathf.Lerp(start, end, easedT);
             yield return null;
         }
 
-        canvasGroup.alpha = end;
+        _canvasGroup.alpha = end;
     }
 
-    public IEnumerator FadeIn() => Fade(canvasGroup.alpha, 1f, fadeInDuration);
-    public IEnumerator FadeOut() => Fade(canvasGroup.alpha, 0f, fadeOutDuration);
+    public IEnumerator FadeIn() => Fade(_canvasGroup.alpha, 1f, _fadeInDuration);
+    public IEnumerator FadeOut() => Fade(_canvasGroup.alpha, 0f, _fadeOutDuration);
 
     public IEnumerator FadeTo(float targetAlpha, float duration)
     {
-        float startAlpha = canvasGroup.alpha;
+        float startAlpha = _canvasGroup.alpha;
         float time = 0f;
 
         while (time < duration)
         {
             time += Time.unscaledDeltaTime;
-            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+            _canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
             yield return null;
         }
 
-        canvasGroup.alpha = targetAlpha;
+        _canvasGroup.alpha = targetAlpha;
     }
 
     public void SetAlpha(float value)
     {
-        canvasGroup.alpha = value;
+        _canvasGroup.alpha = value;
     }
 
     // ====== TESTING ======
