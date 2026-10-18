@@ -1,8 +1,7 @@
 using System.Collections;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
-public class LandlineMission : MissionInstance
+public class LandlineMission : MonoBehaviour
 {
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private InteractableLandline _interactableLandline;
