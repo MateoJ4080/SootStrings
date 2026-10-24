@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Camera playerCam;
     [SerializeField] float mouseSensitivity = 100f;
 
-    private float xRotation = 0f;
+    public float xRotation = 0f;
     private Vector2 lookInput;
 
     void Start()
@@ -35,5 +34,8 @@ public class CameraController : MonoBehaviour
 
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+
+        Debug.Log($"mouseY: {mouseY}");
+        Debug.Log($"xRotation: {xRotation}");
     }
 }

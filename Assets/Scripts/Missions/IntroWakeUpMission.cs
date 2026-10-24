@@ -5,6 +5,7 @@ public class IntroWakeUpMission : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
     [SerializeField] private CameraController _camController;
+    [SerializeField] private Transform _head;
 
     [SerializeField] private Animator _introAnimator;
     [SerializeField] private AnimationClip _wakeUpClip;
@@ -15,21 +16,15 @@ public class IntroWakeUpMission : MonoBehaviour
 
     public IEnumerator Start()
     {
-        // if (DebugMode)
-        // {
-        //     _player.transform.position = new(-2.4f, 0.8f, -5);
-        //     yield break;
-        // }
-
         DayManager.Instance.SetPlayerActive(false);
         _camController.enabled = false;
 
         _introAnimator.Play("WakeUp");
-        yield return new WaitForSeconds(_wakeUpClip.length);
-
+        yield return new WaitForSeconds(_wakeUpClip.length * 0.5f); // ----- '2' FOR DEBUG ONLY -----
 
         // yield return UIManager.Instance.ShowDialogue("Ughhh… my head is killing me.");
         // yield return UIManager.Instance.ShowDialogue("What the hell did I do last night?");
+
         _camController.enabled = true;
         DayManager.Instance.SetPlayerActive(true);
 
